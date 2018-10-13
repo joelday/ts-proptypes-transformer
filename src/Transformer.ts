@@ -38,7 +38,8 @@ interface IContext {
 export function createTransformer(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
     const typeChecker = program.getTypeChecker();
 
-    function createPropTypesForType(type: ts.Type) {
+    function createPropTypesForType(type: ts.Type, importAliasName: string) {
+        // TODO: The fun part.
         return ts.createObjectLiteral([], true);
     }
 
@@ -49,7 +50,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             propTypesStaticPropertyName,
             undefined,
             undefined,
-            createPropTypesForType(componentInfo.propTypes)
+            createPropTypesForType(componentInfo.propTypes, context.importAliasName)
         );
 
         const updatedDeclaration = ts.updateClassDeclaration(
@@ -71,7 +72,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             ts.createBinary(
                 ts.createPropertyAccess(ts.createIdentifier(componentInfo.name), propTypesStaticPropertyName),
                 ts.SyntaxKind.EqualsToken,
-                createPropTypesForType(componentInfo.propTypes)
+                createPropTypesForType(componentInfo.propTypes, context.importAliasName)
             )
         );
 
