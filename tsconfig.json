@@ -2,6 +2,9 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "noEmit": true
+        "noEmit": true,
+        "jsx": "react",
+        "lib": ["esnext"],
+        "downlevelIteration": true
     }
 }

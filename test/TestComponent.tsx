@@ -1,9 +1,12 @@
 import * as React from 'react';
 
+// import * as ptypes from 'prop-types';
+import { Validator } from 'prop-types';
+
 export enum TestEnum {
     one,
     two,
-    three
+    three,
 }
 
 export interface IFirstName {
@@ -27,14 +30,16 @@ export interface ITestComponentProps {
      */
     commentedProp: string;
     union: 'a' | 'b' | 'c';
-    intersecton: IFirstName & ILastName,
-    intersectonAlias: FullName,
-    partialIntersectionAlias: Partial<FullName>,
-    enum: TestEnum
+    intersecton: IFirstName & ILastName;
+    intersectonAlias: FullName;
+    partialIntersectionAlias: Partial<FullName>;
+    enum: TestEnum;
 }
 
-export class TestComponent extends React.Component<ITestComponentProps> {
+export class TestComponent extends React.Component<ITestComponentProps> {}
 
+export class AlreadyHasAStaticPropTypes extends React.Component<ITestComponentProps> {
+    static propTypes = {};
 }
 
 export interface IGenericPropsTestComponent<T, U = T> {
@@ -45,22 +50,28 @@ export interface IGenericPropsTestComponent<T, U = T> {
     propOfArrayOfTAndU: (T & U)[];
 }
 
-export class GenericPropsTestComponent<T> extends React.Component<IGenericPropsTestComponent<T>> {
+export class NotAComponentClass {}
 
-}
+export class GenericPropsTestComponent<T> extends React.Component<IGenericPropsTestComponent<T>> {}
 
-export class GenericPropsTestComponent2<T, U> extends React.Component<IGenericPropsTestComponent<T, U>> {
+export class GenericPropsTestComponent2<T, U> extends React.Component<IGenericPropsTestComponent<T, U>> {}
 
-}
+export class GenericPropsTestComponent3 extends React.Component<IGenericPropsTestComponent<IFirstName>> {}
 
-export class GenericPropsTestComponent3 extends React.Component<IGenericPropsTestComponent<IFirstName>> {
+export class GenericPropsTestComponent4 extends React.Component<IGenericPropsTestComponent<IFirstName, ILastName>> {}
 
-}
+export class GenericPropsTestComponent5<U> extends React.Component<IGenericPropsTestComponent<IFirstName, U>> {}
 
-export class GenericPropsTestComponent4 extends React.Component<IGenericPropsTestComponent<IFirstName, ILastName>> {
+export class GenericPropsTestComponent6<U> extends GenericPropsTestComponent5<U> {}
 
-}
+export const StatelessFunctionalTestComponent: React.SFC<ITestComponentProps> = (p) => {
+    return <div {...p} />;
+};
 
-export class GenericPropsTestComponent5<U> extends React.Component<IGenericPropsTestComponent<IFirstName, U>> {
+export const InferrableStatelessFunctionalTestComponent = (p: ITestComponentProps) => {
+    return <StatelessFunctionalTestComponent {...p} />;
+};
 
+export function DeclaredFunctionTestComponent(p: ITestComponentProps) {
+    return <StatelessFunctionalTestComponent {...p} />;
 }

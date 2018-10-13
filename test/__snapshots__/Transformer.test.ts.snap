@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transformer transforms TypeScript interfaces to PropTypes declarations on emitted code 1`] = `
+"import * as ___PropTypes from \\"prop-types\\";
+import * as React from 'react';
+export var TestEnum;
+(function (TestEnum) {
+    TestEnum[TestEnum[\\"one\\"] = 0] = \\"one\\";
+    TestEnum[TestEnum[\\"two\\"] = 1] = \\"two\\";
+    TestEnum[TestEnum[\\"three\\"] = 2] = \\"three\\";
+})(TestEnum || (TestEnum = {}));
+export class TestComponent extends React.Component {
+}
+export class AlreadyHasAStaticPropTypes extends React.Component {
+}
+AlreadyHasAStaticPropTypes.propTypes = {};
+export class NotAComponentClass {
+}
+export class GenericPropsTestComponent extends React.Component {
+}
+export class GenericPropsTestComponent2 extends React.Component {
+}
+export class GenericPropsTestComponent3 extends React.Component {
+}
+export class GenericPropsTestComponent4 extends React.Component {
+}
+export class GenericPropsTestComponent5 extends React.Component {
+}
+export class GenericPropsTestComponent6 extends GenericPropsTestComponent5 {
+}
+export const StatelessFunctionalTestComponent = (p) => {
+    return <div {...p}/>;
+};
+export const InferrableStatelessFunctionalTestComponent = (p) => {
+    return <StatelessFunctionalTestComponent {...p}/>;
+};
+export function DeclaredFunctionTestComponent(p) {
+    return <StatelessFunctionalTestComponent {...p}/>;
+}
+"
+`;
