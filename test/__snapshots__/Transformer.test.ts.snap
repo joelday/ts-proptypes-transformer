@@ -38,6 +38,7 @@ GenericPropsTestComponent6.propTypes = {};
 export const StatelessFunctionalTestComponent = (p) => {
     return <div {...p}/>;
 };
+StatelessFunctionalTestComponent.propTypes = {};
 export const InferrableStatelessFunctionalTestComponent = (p) => {
     return <StatelessFunctionalTestComponent {...p}/>;
 };

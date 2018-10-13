@@ -15,11 +15,11 @@ interface IReactComponentInfo {
     readonly declaration: ts.VariableDeclaration | ts.ClassDeclaration;
     readonly symbol: ts.Symbol;
     readonly propTypes: ts.Type;
+    readonly type: ts.Type;
 }
 
 interface IClassReactComponentInfo extends IReactComponentInfo {
     readonly kind: 'class';
-    readonly type: ts.Type;
     readonly declaration: ts.ClassDeclaration;
 }
 
@@ -64,6 +64,19 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
 
         const existingDeclarationIndex = context.statements.indexOf(componentInfo.declaration);
         context.statements.splice(existingDeclarationIndex, 1, updatedDeclaration);
+    }
+
+    function addPropTypesDeclarationToStateless(componentInfo: IStatelessReactComponentInfo, context: IContext) {
+        const propTypesAssignment = ts.createExpressionStatement(
+            ts.createBinary(
+                ts.createPropertyAccess(ts.createIdentifier(componentInfo.name), propTypesStaticPropertyName),
+                ts.SyntaxKind.EqualsToken,
+                createPropTypesForType(componentInfo.propTypes)
+            )
+        );
+
+        const declarationIndex = context.statements.indexOf(componentInfo.declaration.parent.parent);
+        context.statements.splice(declarationIndex + 1, 0, propTypesAssignment);
     }
 
     function findExistingPropTypesImportAliasName(node: ts.Node) {
@@ -116,7 +129,23 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     }
 
     function getStatelessComponentInfo(symbol: ts.Symbol): IStatelessReactComponentInfo {
-        return null;
+        // TODO: Check for existing propTypes assignment.
+        const declaration = symbol.declarations[0] as ts.VariableDeclaration;
+        const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration) as ts.GenericType;
+
+        // TODO: More robust check:
+        if (!type || type.getSymbol().escapedName !== 'StatelessComponent') {
+            return null;
+        }
+
+        return {
+            name: symbol.getName(),
+            kind: 'stateless',
+            symbol,
+            declaration,
+            type,
+            propTypes: type.typeArguments[0],
+        };
     }
 
     function getAncestryOfType(type: ts.InterfaceType) {
@@ -130,7 +159,8 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         return types;
     }
 
-    function getTypeIsReactComponentBaseClass(type: ts.InterfaceTypeWithDeclaredMembers) {
+    function getTypeIsReactComponentType(type: ts.InterfaceTypeWithDeclaredMembers) {
+        // TODO: Actually check for if this is React.SFC or React.Component
         const declaration = type.getSymbol().declarations[0];
         return declaration.getSourceFile().fileName.endsWith(`${reactPackageName}/index.d.ts`);
     }
@@ -150,7 +180,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         const baseTypes = getAncestryOfType(type);
 
         // We find React.Component on a per component class basis because the type arguments are resolved contextually.
-        const reactComponentClass = baseTypes.find(getTypeIsReactComponentBaseClass) as ts.GenericType;
+        const reactComponentClass = baseTypes.find(getTypeIsReactComponentType) as ts.GenericType;
         if (!reactComponentClass) {
             return null;
         }
@@ -201,12 +231,13 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         // Need a special leading comment annotation to opt-in to it, though.
 
         const componentInfos = getInfoForComponentsInScope(sourceFile);
-        console.log('React components:', componentInfos.map((c) => c.name));
+        console.log('React components:\r\n', componentInfos.map((c) => c.name));
 
         for (const componentInfo of componentInfos) {
             if (componentInfo.kind === 'class') {
                 addPropTypesDeclarationToClass(componentInfo, context);
             } else {
+                addPropTypesDeclarationToStateless(componentInfo, context);
             }
         }
 
@@ -216,7 +247,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     return (_) => {
         return (sourceFile: ts.SourceFile) => {
             const diagnostics = program.getSemanticDiagnostics();
-            console.log(diagnostics);
+            console.log('Diagnostics:\r\n', diagnostics.map((d) => d.messageText));
 
             return ts.updateSourceFileNode(sourceFile, generateAndApplyPropTypes(sourceFile));
         };
