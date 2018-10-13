@@ -3,12 +3,6 @@
 exports[`Transformer transforms TypeScript interfaces to PropTypes declarations on emitted code 1`] = `
 "import * as ___PropTypes from \\"prop-types\\";
 import * as React from 'react';
-export var TestEnum;
-(function (TestEnum) {
-    TestEnum[TestEnum[\\"one\\"] = 0] = \\"one\\";
-    TestEnum[TestEnum[\\"two\\"] = 1] = \\"two\\";
-    TestEnum[TestEnum[\\"three\\"] = 2] = \\"three\\";
-})(TestEnum || (TestEnum = {}));
 export class TestComponent extends React.Component {
 }
 TestComponent.propTypes = {
