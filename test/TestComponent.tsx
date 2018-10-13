@@ -1,6 +1,8 @@
 import * as React from 'react';
 
+// TODO: Add test for this scenario where an import of prop-types already exists
 // import * as ptypes from 'prop-types';
+
 import { Validator } from 'prop-types';
 
 export enum TestEnum {
