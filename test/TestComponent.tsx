@@ -30,6 +30,7 @@ export interface ITestComponentProps {
      */
     commentedProp: string;
     union: 'a' | 'b' | 'c';
+    interfaceValue: IFirstName;
     intersecton: IFirstName & ILastName;
     intersectonAlias: FullName;
     partialIntersectionAlias: Partial<FullName>;

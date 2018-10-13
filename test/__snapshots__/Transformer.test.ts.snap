@@ -11,7 +11,22 @@ export var TestEnum;
 })(TestEnum || (TestEnum = {}));
 export class TestComponent extends React.Component {
 }
-TestComponent.propTypes = {};
+TestComponent.propTypes = {
+    numberProp: ___PropTypes.number,
+    boolProp: ___PropTypes.bool,
+    arrayProp: ___PropTypes.array,
+    genericArrayProp: ___PropTypes.array,
+    optionalProp: ___PropTypes.bool,
+    commentedProp: ___PropTypes.array,
+    union: ___PropTypes.array,
+    interfaceValue: ___PropTypes.shape({
+        firstName: ___PropTypes.array
+    }),
+    intersecton: ___PropTypes.any,
+    intersectonAlias: ___PropTypes.any,
+    partialIntersectionAlias: ___PropTypes.any,
+    enum: ___PropTypes.any
+};
 export class AlreadyHasAStaticPropTypes extends React.Component {
 }
 AlreadyHasAStaticPropTypes.propTypes = {};
@@ -19,26 +34,41 @@ export class NotAComponentClass {
 }
 export class GenericPropsTestComponent extends React.Component {
 }
-GenericPropsTestComponent.propTypes = {};
+GenericPropsTestComponent.propTypes = ___PropTypes.any;
 export class GenericPropsTestComponent2 extends React.Component {
 }
-GenericPropsTestComponent2.propTypes = {};
+GenericPropsTestComponent2.propTypes = ___PropTypes.any;
 export class GenericPropsTestComponent3 extends React.Component {
 }
-GenericPropsTestComponent3.propTypes = {};
+GenericPropsTestComponent3.propTypes = ___PropTypes.any;
 export class GenericPropsTestComponent4 extends React.Component {
 }
-GenericPropsTestComponent4.propTypes = {};
+GenericPropsTestComponent4.propTypes = ___PropTypes.any;
 export class GenericPropsTestComponent5 extends React.Component {
 }
-GenericPropsTestComponent5.propTypes = {};
+GenericPropsTestComponent5.propTypes = ___PropTypes.any;
 export class GenericPropsTestComponent6 extends GenericPropsTestComponent5 {
 }
-GenericPropsTestComponent6.propTypes = {};
+GenericPropsTestComponent6.propTypes = ___PropTypes.any;
 export const StatelessFunctionalTestComponent = (p) => {
     return <div {...p}/>;
 };
-StatelessFunctionalTestComponent.propTypes = {};
+StatelessFunctionalTestComponent.propTypes = {
+    numberProp: ___PropTypes.number,
+    boolProp: ___PropTypes.bool,
+    arrayProp: ___PropTypes.array,
+    genericArrayProp: ___PropTypes.array,
+    optionalProp: ___PropTypes.bool,
+    commentedProp: ___PropTypes.array,
+    union: ___PropTypes.array,
+    interfaceValue: ___PropTypes.shape({
+        firstName: ___PropTypes.array
+    }),
+    intersecton: ___PropTypes.any,
+    intersectonAlias: ___PropTypes.any,
+    partialIntersectionAlias: ___PropTypes.any,
+    enum: ___PropTypes.any
+};
 export const InferrableStatelessFunctionalTestComponent = (p) => {
     return <StatelessFunctionalTestComponent {...p}/>;
 };

@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
-
+import * as f from 'prop-types';
+import { PropTypesEmitter } from './PropTypesEmitter';
 // TODO: See if ts has already normalized file paths.
 
 const generatedImportAliasName = '___PropTypes';
@@ -39,8 +40,8 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     const typeChecker = program.getTypeChecker();
 
     function createPropTypesForType(type: ts.Type, importAliasName: string) {
-        // TODO: The fun part.
-        return ts.createObjectLiteral([], true);
+        const emitter = new PropTypesEmitter(typeChecker, importAliasName);
+        return emitter.emitForType(type);
     }
 
     function addPropTypesDeclarationToClass(componentInfo: IClassReactComponentInfo, context: IContext) {
@@ -135,7 +136,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration) as ts.GenericType;
 
         // TODO: More robust check:
-        if (!type || type.getSymbol().escapedName !== 'StatelessComponent') {
+        if (!type || type.getSymbol().name !== 'StatelessComponent') {
             return null;
         }
 
