@@ -12,21 +12,21 @@ export var TestEnum;
 export class TestComponent extends React.Component {
 }
 TestComponent.propTypes = {
-    numberProp: ___PropTypes.number,
-    boolProp: ___PropTypes.bool,
-    arrayProp: ___PropTypes.array,
-    genericArrayProp: ___PropTypes.array,
+    numberProp: ___PropTypes.number.isRequired,
+    boolProp: ___PropTypes.bool.isRequired,
+    arrayProp: ___PropTypes.array.isRequired,
+    genericArrayProp: ___PropTypes.array.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array,
-    union: ___PropTypes.array,
+    commentedProp: ___PropTypes.array.isRequired,
+    union: ___PropTypes.array.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array
-    }),
-    intersecton: ___PropTypes.any,
-    intersectonAlias: ___PropTypes.any,
-    partialIntersectionAlias: ___PropTypes.any,
-    enum: ___PropTypes.any,
-    id: ___PropTypes.number
+        firstName: ___PropTypes.array.isRequired
+    }).isRequired,
+    intersecton: ___PropTypes.any.isRequired,
+    intersectonAlias: ___PropTypes.any.isRequired,
+    partialIntersectionAlias: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.any.isRequired,
+    id: ___PropTypes.number.isRequired
 };
 export class AlreadyHasAStaticPropTypes extends React.Component {
 }
@@ -58,21 +58,21 @@ export const StatelessFunctionalTestComponent = (p) => {
     return <AnyPropsComponent {...p}/>;
 };
 StatelessFunctionalTestComponent.propTypes = {
-    numberProp: ___PropTypes.number,
-    boolProp: ___PropTypes.bool,
-    arrayProp: ___PropTypes.array,
-    genericArrayProp: ___PropTypes.array,
+    numberProp: ___PropTypes.number.isRequired,
+    boolProp: ___PropTypes.bool.isRequired,
+    arrayProp: ___PropTypes.array.isRequired,
+    genericArrayProp: ___PropTypes.array.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array,
-    union: ___PropTypes.array,
+    commentedProp: ___PropTypes.array.isRequired,
+    union: ___PropTypes.array.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array
-    }),
-    intersecton: ___PropTypes.any,
-    intersectonAlias: ___PropTypes.any,
-    partialIntersectionAlias: ___PropTypes.any,
-    enum: ___PropTypes.any,
-    id: ___PropTypes.number
+        firstName: ___PropTypes.array.isRequired
+    }).isRequired,
+    intersecton: ___PropTypes.any.isRequired,
+    intersectonAlias: ___PropTypes.any.isRequired,
+    partialIntersectionAlias: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.any.isRequired,
+    id: ___PropTypes.number.isRequired
 };
 export const InferrableStatelessFunctionalTestComponent = (p) => {
     return <StatelessFunctionalTestComponent {...p}/>;
