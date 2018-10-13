@@ -159,7 +159,6 @@ export class PropTypesEmitter {
     private emitInterfaceMember(member: ts.Symbol) {
         const memberType = this._typeChecker.getTypeOfSymbolAtLocation(member, member.declarations[0]);
         return this.emitForType(memberType, true);
-        // const isRequired = !this._typeChecker.isProperty(member.declarations[0] as ts.P)
     }
 
     private asShape(shapeLiteral: ts.ObjectLiteralExpression) {
