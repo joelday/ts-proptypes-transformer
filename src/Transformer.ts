@@ -32,12 +32,39 @@ type ReactComponentInfo = IStatelessReactComponentInfo | IClassReactComponentInf
 
 interface IContext {
     readonly statements: ts.Statement[];
-    readonly components: ReactComponentInfo[];
     importAliasName?: string;
 }
 
 export function createTransformer(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
     const typeChecker = program.getTypeChecker();
+
+    function createPropTypesForType(type: ts.Type) {
+        return ts.createObjectLiteral([], true);
+    }
+
+    function addPropTypesDeclarationToClass(componentInfo: IClassReactComponentInfo, context: IContext) {
+        const propTypesDeclaration = ts.createProperty(
+            undefined,
+            ts.createModifiersFromModifierFlags(ts.ModifierFlags.Static),
+            propTypesStaticPropertyName,
+            undefined,
+            undefined,
+            createPropTypesForType(componentInfo.propTypes)
+        );
+
+        const updatedDeclaration = ts.updateClassDeclaration(
+            componentInfo.declaration,
+            componentInfo.declaration.decorators,
+            componentInfo.declaration.modifiers,
+            componentInfo.declaration.name,
+            componentInfo.declaration.typeParameters,
+            componentInfo.declaration.heritageClauses,
+            [propTypesDeclaration, ...componentInfo.declaration.members]
+        );
+
+        const existingDeclarationIndex = context.statements.indexOf(componentInfo.declaration);
+        context.statements.splice(existingDeclarationIndex, 1, updatedDeclaration);
+    }
 
     function findExistingPropTypesImportAliasName(node: ts.Node) {
         const aliasSymbols = typeChecker.getSymbolsInScope(node, ts.SymbolFlags.Alias);
@@ -164,14 +191,24 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     function generateAndApplyPropTypes(sourceFile: ts.SourceFile) {
         const context: IContext = {
             statements: [...sourceFile.statements],
-            components: [],
         };
 
         ensurePropTypesImport(sourceFile, context);
         console.log('Import alias:', context.importAliasName);
 
+        // Currently assumes that everything is top-level within the source file.
+        // Wouldn't be incredibly difficult to support class expressions, etc.
+        // Need a special leading comment annotation to opt-in to it, though.
+
         const componentInfos = getInfoForComponentsInScope(sourceFile);
         console.log('React components:', componentInfos.map((c) => c.name));
+
+        for (const componentInfo of componentInfos) {
+            if (componentInfo.kind === 'class') {
+                addPropTypesDeclarationToClass(componentInfo, context);
+            } else {
+            }
+        }
 
         return context.statements;
     }

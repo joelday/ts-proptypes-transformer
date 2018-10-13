@@ -11,6 +11,7 @@ export var TestEnum;
 })(TestEnum || (TestEnum = {}));
 export class TestComponent extends React.Component {
 }
+TestComponent.propTypes = {};
 export class AlreadyHasAStaticPropTypes extends React.Component {
 }
 AlreadyHasAStaticPropTypes.propTypes = {};
@@ -18,16 +19,22 @@ export class NotAComponentClass {
 }
 export class GenericPropsTestComponent extends React.Component {
 }
+GenericPropsTestComponent.propTypes = {};
 export class GenericPropsTestComponent2 extends React.Component {
 }
+GenericPropsTestComponent2.propTypes = {};
 export class GenericPropsTestComponent3 extends React.Component {
 }
+GenericPropsTestComponent3.propTypes = {};
 export class GenericPropsTestComponent4 extends React.Component {
 }
+GenericPropsTestComponent4.propTypes = {};
 export class GenericPropsTestComponent5 extends React.Component {
 }
+GenericPropsTestComponent5.propTypes = {};
 export class GenericPropsTestComponent6 extends GenericPropsTestComponent5 {
 }
+GenericPropsTestComponent6.propTypes = {};
 export const StatelessFunctionalTestComponent = (p) => {
     return <div {...p}/>;
 };
