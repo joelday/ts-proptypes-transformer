@@ -25,7 +25,8 @@ TestComponent.propTypes = {
     intersecton: ___PropTypes.any,
     intersectonAlias: ___PropTypes.any,
     partialIntersectionAlias: ___PropTypes.any,
-    enum: ___PropTypes.any
+    enum: ___PropTypes.any,
+    id: ___PropTypes.number
 };
 export class AlreadyHasAStaticPropTypes extends React.Component {
 }
@@ -50,8 +51,11 @@ GenericPropsTestComponent5.propTypes = ___PropTypes.any;
 export class GenericPropsTestComponent6 extends GenericPropsTestComponent5 {
 }
 GenericPropsTestComponent6.propTypes = ___PropTypes.any;
+export class AnyPropsComponent extends React.Component {
+}
+AnyPropsComponent.propTypes = ___PropTypes.any;
 export const StatelessFunctionalTestComponent = (p) => {
-    return <div {...p}/>;
+    return <AnyPropsComponent {...p}/>;
 };
 StatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number,
@@ -67,7 +71,8 @@ StatelessFunctionalTestComponent.propTypes = {
     intersecton: ___PropTypes.any,
     intersectonAlias: ___PropTypes.any,
     partialIntersectionAlias: ___PropTypes.any,
-    enum: ___PropTypes.any
+    enum: ___PropTypes.any,
+    id: ___PropTypes.number
 };
 export const InferrableStatelessFunctionalTestComponent = (p) => {
     return <StatelessFunctionalTestComponent {...p}/>;

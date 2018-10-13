@@ -19,7 +19,11 @@ export interface ILastName {
 
 export type FullName = IFirstName & ILastName;
 
-export interface ITestComponentProps {
+export interface IBaseInterface {
+    id: number;
+}
+
+export interface ITestComponentProps extends IBaseInterface {
     numberProp: number;
     boolProp: boolean;
     arrayProp: number[];
@@ -65,8 +69,10 @@ export class GenericPropsTestComponent5<U> extends React.Component<IGenericProps
 
 export class GenericPropsTestComponent6<U> extends GenericPropsTestComponent5<U> {}
 
+export class AnyPropsComponent extends React.Component {}
+
 export const StatelessFunctionalTestComponent: React.SFC<ITestComponentProps> = (p) => {
-    return <div {...p} />;
+    return <AnyPropsComponent {...p} />;
 };
 
 export const InferrableStatelessFunctionalTestComponent = (p: ITestComponentProps) => {
