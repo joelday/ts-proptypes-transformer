@@ -109,10 +109,10 @@ export class PropTypesEmitter {
             return PropTypePrimitiveType.any;
         }
 
-        const numericIndexType = this._typeChecker.getIndexTypeOfType(type, ts.IndexKind.Number);
-        if (numericIndexType) {
-            return PropTypePrimitiveType.array;
-        }
+        // const numericIndexType = this._typeChecker.getIndexTypeOfType(type, ts.IndexKind.Number);
+        // if (numericIndexType) {
+        //     return PropTypePrimitiveType.array;
+        // }
 
         if (type.getCallSignatures().length > 0) {
             return PropTypePrimitiveType.func;

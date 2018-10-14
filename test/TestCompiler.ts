@@ -8,7 +8,7 @@ export interface ITestProgramOptions {
     additionalFileNames?: string[];
 }
 
-export function emitSource(
+export function compile(
     fileName: string,
     resultCallback: (emittedSource: string) => void,
     options?: ITestProgramOptions
@@ -38,13 +38,15 @@ export function emitSource(
     return emitResult;
 }
 
-export function emitAndLoad(fileName: string, additionalFileNames = []) {
-    return new Promise<any>((resolve, reject) => {
+export function compileAndLoadModule(fileName: string, additionalFileNames = []) {
+    return new Promise((resolve, reject) => {
         try {
-            emitSource(
+            compile(
                 fileName,
                 (emittedSource) => {
-                    resolve(requireFromString(emittedSource));
+                    setTimeout(() => {
+                        resolve(requireFromString(emittedSource));
+                    }, 1);
                 },
                 {
                     additionalFileNames,

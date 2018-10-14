@@ -37,13 +37,13 @@ var TestComponent = /** @class */ (function (_super) {
     TestComponent.propTypes = {
         numberProp: ___PropTypes.number.isRequired,
         boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.array.isRequired,
-        genericArrayProp: ___PropTypes.array.isRequired,
+        arrayProp: ___PropTypes.any.isRequired,
+        genericArrayProp: ___PropTypes.any.isRequired,
         optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.array.isRequired,
-        union: ___PropTypes.array.isRequired,
+        commentedProp: ___PropTypes.string.isRequired,
+        union: ___PropTypes.any.isRequired,
         interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.array.isRequired
+            firstName: ___PropTypes.string.isRequired
         }).isRequired,
         intersecton: ___PropTypes.any.isRequired,
         intersectonAlias: ___PropTypes.any.isRequired,
@@ -138,13 +138,13 @@ exports.StatelessFunctionalTestComponent = function (p) {
 exports.StatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.array.isRequired,
-    genericArrayProp: ___PropTypes.array.isRequired,
+    arrayProp: ___PropTypes.any.isRequired,
+    genericArrayProp: ___PropTypes.any.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array.isRequired,
-    union: ___PropTypes.array.isRequired,
+    commentedProp: ___PropTypes.string.isRequired,
+    union: ___PropTypes.any.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array.isRequired
+        firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
@@ -158,13 +158,13 @@ var NonExportedStatelessFunctionalTestComponent = function (p) {
 NonExportedStatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.array.isRequired,
-    genericArrayProp: ___PropTypes.array.isRequired,
+    arrayProp: ___PropTypes.any.isRequired,
+    genericArrayProp: ___PropTypes.any.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array.isRequired,
-    union: ___PropTypes.array.isRequired,
+    commentedProp: ___PropTypes.string.isRequired,
+    union: ___PropTypes.any.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array.isRequired
+        firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
@@ -190,13 +190,13 @@ export class TestComponent extends React.Component {
 TestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.array.isRequired,
-    genericArrayProp: ___PropTypes.array.isRequired,
+    arrayProp: ___PropTypes.any.isRequired,
+    genericArrayProp: ___PropTypes.any.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array.isRequired,
-    union: ___PropTypes.array.isRequired,
+    commentedProp: ___PropTypes.string.isRequired,
+    union: ___PropTypes.any.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array.isRequired
+        firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
@@ -236,13 +236,13 @@ export const StatelessFunctionalTestComponent = (p) => {
 StatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.array.isRequired,
-    genericArrayProp: ___PropTypes.array.isRequired,
+    arrayProp: ___PropTypes.any.isRequired,
+    genericArrayProp: ___PropTypes.any.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array.isRequired,
-    union: ___PropTypes.array.isRequired,
+    commentedProp: ___PropTypes.string.isRequired,
+    union: ___PropTypes.any.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array.isRequired
+        firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
@@ -256,13 +256,13 @@ const NonExportedStatelessFunctionalTestComponent = (p) => {
 NonExportedStatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.array.isRequired,
-    genericArrayProp: ___PropTypes.array.isRequired,
+    arrayProp: ___PropTypes.any.isRequired,
+    genericArrayProp: ___PropTypes.any.isRequired,
     optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.array.isRequired,
-    union: ___PropTypes.array.isRequired,
+    commentedProp: ___PropTypes.string.isRequired,
+    union: ___PropTypes.any.isRequired,
     interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.array.isRequired
+        firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,

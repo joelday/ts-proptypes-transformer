@@ -237,14 +237,12 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         };
 
         ensurePropTypesImport(sourceFile, context);
-        console.log('Import alias:', context.importAliasName);
 
         // Currently assumes that everything is top-level within the source file.
         // Wouldn't be incredibly difficult to support class expressions, etc.
         // Need a special leading comment annotation to opt-in to it, though.
 
         const componentInfos = getInfoForComponentsInScope(sourceFile);
-        console.log('React components:\r\n', componentInfos.map((c) => c.name));
 
         for (const componentInfo of componentInfos) {
             if (componentInfo.kind === 'class') {
@@ -259,9 +257,6 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
 
     return (_context) => {
         return (sourceFile: ts.SourceFile) => {
-            const diagnostics = program.getSemanticDiagnostics();
-            console.log('Diagnostics:\r\n', diagnostics.map((d) => d.messageText));
-
             return ts.updateSourceFileNode(sourceFile, generateAndApplyPropTypes(sourceFile));
         };
     };
