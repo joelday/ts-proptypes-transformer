@@ -101,18 +101,22 @@ export class PropTypesEmitter {
         // TODO: Check for classes
 
         const primitiveType = this.getPrimitiveTypeOfType(type);
-        return this.emitPrimitiveType(primitiveType);
+        if (primitiveType) {
+            return this.emitPrimitiveType(primitiveType);
+        }
+
+        const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
+        if (numericIndexInfo) {
+            return this.arrayOf(this.emitForType(numericIndexInfo.type, true));
+        }
+
+        return this.emitPrimitiveType(PropTypePrimitiveType.any);
     }
 
     private getPrimitiveTypeOfType(type: ts.Type) {
         if (type.flags & ts.TypeFlags.Literal) {
             return PropTypePrimitiveType.any;
         }
-
-        // const numericIndexType = this._typeChecker.getIndexTypeOfType(type, ts.IndexKind.Number);
-        // if (numericIndexType) {
-        //     return PropTypePrimitiveType.array;
-        // }
 
         if (type.getCallSignatures().length > 0) {
             return PropTypePrimitiveType.func;
@@ -138,7 +142,7 @@ export class PropTypesEmitter {
             return PropTypePrimitiveType.symbol;
         }
 
-        return PropTypePrimitiveType.any;
+        return null;
     }
 
     private emitInterface(type: ts.InterfaceTypeWithDeclaredMembers) {
@@ -164,6 +168,11 @@ export class PropTypesEmitter {
     private asShape(shapeLiteral: ts.ObjectLiteralExpression) {
         const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'shape');
         return ts.createCall(functionReference, [], [shapeLiteral]);
+    }
+
+    private arrayOf(expression: ts.Expression) {
+        const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'arrayOf');
+        return ts.createCall(functionReference, [], [expression]);
     }
 
     private asRequired(expression: ts.Expression) {
