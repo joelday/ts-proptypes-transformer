@@ -1,5 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Transformer transforms TypeScript interfaces to PropTypes declarations on ES5 emitted code 1`] = `
+"\\"use strict\\";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, \\"__esModule\\", { value: true });
+var ___PropTypes = require(\\"prop-types\\");
+var React = require(\\"react\\");
+var TestComponent = /** @class */ (function (_super) {
+    __extends(TestComponent, _super);
+    function TestComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TestComponent.propTypes = {
+        numberProp: ___PropTypes.number.isRequired,
+        boolProp: ___PropTypes.bool.isRequired,
+        arrayProp: ___PropTypes.array.isRequired,
+        genericArrayProp: ___PropTypes.array.isRequired,
+        optionalProp: ___PropTypes.bool,
+        commentedProp: ___PropTypes.array.isRequired,
+        union: ___PropTypes.array.isRequired,
+        interfaceValue: ___PropTypes.shape({
+            firstName: ___PropTypes.array.isRequired
+        }).isRequired,
+        intersecton: ___PropTypes.any.isRequired,
+        intersectonAlias: ___PropTypes.any.isRequired,
+        partialIntersectionAlias: ___PropTypes.any.isRequired,
+        enum: ___PropTypes.any.isRequired,
+        id: ___PropTypes.number.isRequired
+    };
+    return TestComponent;
+}(React.Component));
+exports.TestComponent = TestComponent;
+var AlreadyHasAStaticPropTypes = /** @class */ (function (_super) {
+    __extends(AlreadyHasAStaticPropTypes, _super);
+    function AlreadyHasAStaticPropTypes() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    AlreadyHasAStaticPropTypes.propTypes = {};
+    return AlreadyHasAStaticPropTypes;
+}(React.Component));
+exports.AlreadyHasAStaticPropTypes = AlreadyHasAStaticPropTypes;
+var NotAComponentClass = /** @class */ (function () {
+    function NotAComponentClass() {
+    }
+    return NotAComponentClass;
+}());
+exports.NotAComponentClass = NotAComponentClass;
+var GenericPropsTestComponent = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent, _super);
+    function GenericPropsTestComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent.propTypes = ___PropTypes.any;
+    return GenericPropsTestComponent;
+}(React.Component));
+exports.GenericPropsTestComponent = GenericPropsTestComponent;
+var GenericPropsTestComponent2 = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent2, _super);
+    function GenericPropsTestComponent2() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent2.propTypes = ___PropTypes.any;
+    return GenericPropsTestComponent2;
+}(React.Component));
+exports.GenericPropsTestComponent2 = GenericPropsTestComponent2;
+var GenericPropsTestComponent3 = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent3, _super);
+    function GenericPropsTestComponent3() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent3.propTypes = ___PropTypes.any;
+    return GenericPropsTestComponent3;
+}(React.Component));
+exports.GenericPropsTestComponent3 = GenericPropsTestComponent3;
+var GenericPropsTestComponent4 = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent4, _super);
+    function GenericPropsTestComponent4() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent4.propTypes = ___PropTypes.any;
+    return GenericPropsTestComponent4;
+}(React.Component));
+exports.GenericPropsTestComponent4 = GenericPropsTestComponent4;
+var GenericPropsTestComponent5 = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent5, _super);
+    function GenericPropsTestComponent5() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent5.propTypes = ___PropTypes.any;
+    return GenericPropsTestComponent5;
+}(React.Component));
+exports.GenericPropsTestComponent5 = GenericPropsTestComponent5;
+var GenericPropsTestComponent6 = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent6, _super);
+    function GenericPropsTestComponent6() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent6.propTypes = ___PropTypes.any;
+    return GenericPropsTestComponent6;
+}(GenericPropsTestComponent5));
+exports.GenericPropsTestComponent6 = GenericPropsTestComponent6;
+var AnyPropsComponent = /** @class */ (function (_super) {
+    __extends(AnyPropsComponent, _super);
+    function AnyPropsComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    AnyPropsComponent.propTypes = ___PropTypes.any;
+    return AnyPropsComponent;
+}(React.Component));
+exports.AnyPropsComponent = AnyPropsComponent;
+exports.StatelessFunctionalTestComponent = function (p) {
+    return React.createElement(AnyPropsComponent, __assign({}, p));
+};
+StatelessFunctionalTestComponent.propTypes = {
+    numberProp: ___PropTypes.number.isRequired,
+    boolProp: ___PropTypes.bool.isRequired,
+    arrayProp: ___PropTypes.array.isRequired,
+    genericArrayProp: ___PropTypes.array.isRequired,
+    optionalProp: ___PropTypes.bool,
+    commentedProp: ___PropTypes.array.isRequired,
+    union: ___PropTypes.array.isRequired,
+    interfaceValue: ___PropTypes.shape({
+        firstName: ___PropTypes.array.isRequired
+    }).isRequired,
+    intersecton: ___PropTypes.any.isRequired,
+    intersectonAlias: ___PropTypes.any.isRequired,
+    partialIntersectionAlias: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.any.isRequired,
+    id: ___PropTypes.number.isRequired
+};
+exports.InferrableStatelessFunctionalTestComponent = function (p) {
+    return React.createElement(exports.StatelessFunctionalTestComponent, __assign({}, p));
+};
+function DeclaredFunctionTestComponent(p) {
+    return React.createElement(exports.StatelessFunctionalTestComponent, __assign({}, p));
+}
+exports.DeclaredFunctionTestComponent = DeclaredFunctionTestComponent;
+"
+`;
+
 exports[`Transformer transforms TypeScript interfaces to PropTypes declarations on emitted code 1`] = `
 "import * as ___PropTypes from \\"prop-types\\";
 import * as React from 'react';

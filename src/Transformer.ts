@@ -246,7 +246,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         return context.statements;
     }
 
-    return (_) => {
+    return (_context) => {
         return (sourceFile: ts.SourceFile) => {
             const diagnostics = program.getSemanticDiagnostics();
             console.log('Diagnostics:\r\n', diagnostics.map((d) => d.messageText));
