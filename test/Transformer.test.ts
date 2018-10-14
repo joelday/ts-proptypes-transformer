@@ -36,6 +36,7 @@ describe('Transformer', () => {
             arrayProp: [],
             numberProp: 1,
             boolProp: true,
+            boolLiteralProp: false,
             commentedProp: '',
             enum: TestEnum.one,
             // TODO:
@@ -49,6 +50,9 @@ describe('Transformer', () => {
             partialIntersectionAlias: { lastName: 'lastName' },
             // TODO:
             union: 'a',
+            numberLiteralProp: 1,
+            stringLiteralProp: 'hi',
+            complexUnion: 'a',
         }).toHaveLength(0);
     });
 
@@ -59,6 +63,7 @@ describe('Transformer', () => {
             arrayProp: 1 as any,
             numberProp: 'a' as any,
             boolProp: 'a' as any,
+            boolLiteralProp: true as any,
             commentedProp: undefined,
             enum: 'a' as any,
             genericArrayProp: 'a' as any,
@@ -68,6 +73,9 @@ describe('Transformer', () => {
             intersectonAlias: { firstName: 'firstName' } as any,
             partialIntersectionAlias: { whoKnows: 'lastName' } as any,
             union: 'd' as any,
-        }).not.toHaveLength(0); // toHaveLength(12);
+            numberLiteralProp: 'hi' as any,
+            stringLiteralProp: 1 as any,
+            complexUnion: 'jibberish' as any,
+        }).not.toHaveLength(0); // toHaveLength(15);
     });
 });

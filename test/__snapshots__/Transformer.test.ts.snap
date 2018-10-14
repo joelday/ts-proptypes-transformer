@@ -36,19 +36,60 @@ var TestComponent = /** @class */ (function (_super) {
     }
     TestComponent.propTypes = {
         numberProp: ___PropTypes.number.isRequired,
+        stringLiteralProp: ___PropTypes.oneOf([
+            \\"hi\\"
+        ]).isRequired,
+        numberLiteralProp: ___PropTypes.oneOf([
+            1
+        ]).isRequired,
+        boolLiteralProp: ___PropTypes.oneOf([
+            false
+        ]).isRequired,
         boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.any.isRequired,
-        genericArrayProp: ___PropTypes.any.isRequired,
+        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
         optionalProp: ___PropTypes.bool,
         commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.any.isRequired,
+        union: ___PropTypes.oneOf([
+            \\"a\\",
+            \\"b\\",
+            \\"c\\"
+        ]).isRequired,
+        complexUnion: ___PropTypes.oneOfType([
+            ___PropTypes.oneOf([
+                true
+            ]),
+            ___PropTypes.shape({
+                firstName: ___PropTypes.string.isRequired
+            }),
+            ___PropTypes.oneOf([
+                \\"a\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"b\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"c\\"
+            ]),
+            ___PropTypes.oneOf([
+                5
+            ]),
+            ___PropTypes.oneOf([
+                \\"6\\"
+            ]),
+            ___PropTypes.any
+        ]).isRequired,
         interfaceValue: ___PropTypes.shape({
             firstName: ___PropTypes.string.isRequired
         }).isRequired,
         intersecton: ___PropTypes.any.isRequired,
         intersectonAlias: ___PropTypes.any.isRequired,
         partialIntersectionAlias: ___PropTypes.any.isRequired,
-        enum: ___PropTypes.any.isRequired,
+        enum: ___PropTypes.oneOf([
+            0,
+            1,
+            2
+        ]).isRequired,
         id: ___PropTypes.number.isRequired
     };
     return TestComponent;
@@ -137,19 +178,60 @@ exports.StatelessFunctionalTestComponent = function (p) {
 };
 exports.StatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
+    stringLiteralProp: ___PropTypes.oneOf([
+        \\"hi\\"
+    ]).isRequired,
+    numberLiteralProp: ___PropTypes.oneOf([
+        1
+    ]).isRequired,
+    boolLiteralProp: ___PropTypes.oneOf([
+        false
+    ]).isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.any.isRequired,
-    genericArrayProp: ___PropTypes.any.isRequired,
+    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
     optionalProp: ___PropTypes.bool,
     commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.any.isRequired,
+    union: ___PropTypes.oneOf([
+        \\"a\\",
+        \\"b\\",
+        \\"c\\"
+    ]).isRequired,
+    complexUnion: ___PropTypes.oneOfType([
+        ___PropTypes.oneOf([
+            true
+        ]),
+        ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }),
+        ___PropTypes.oneOf([
+            \\"a\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"b\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"c\\"
+        ]),
+        ___PropTypes.oneOf([
+            5
+        ]),
+        ___PropTypes.oneOf([
+            \\"6\\"
+        ]),
+        ___PropTypes.any
+    ]).isRequired,
     interfaceValue: ___PropTypes.shape({
         firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
     partialIntersectionAlias: ___PropTypes.any.isRequired,
-    enum: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.oneOf([
+        0,
+        1,
+        2
+    ]).isRequired,
     id: ___PropTypes.number.isRequired
 };
 var NonExportedStatelessFunctionalTestComponent = function (p) {
@@ -157,19 +239,60 @@ var NonExportedStatelessFunctionalTestComponent = function (p) {
 };
 NonExportedStatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
+    stringLiteralProp: ___PropTypes.oneOf([
+        \\"hi\\"
+    ]).isRequired,
+    numberLiteralProp: ___PropTypes.oneOf([
+        1
+    ]).isRequired,
+    boolLiteralProp: ___PropTypes.oneOf([
+        false
+    ]).isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.any.isRequired,
-    genericArrayProp: ___PropTypes.any.isRequired,
+    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
     optionalProp: ___PropTypes.bool,
     commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.any.isRequired,
+    union: ___PropTypes.oneOf([
+        \\"a\\",
+        \\"b\\",
+        \\"c\\"
+    ]).isRequired,
+    complexUnion: ___PropTypes.oneOfType([
+        ___PropTypes.oneOf([
+            true
+        ]),
+        ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }),
+        ___PropTypes.oneOf([
+            \\"a\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"b\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"c\\"
+        ]),
+        ___PropTypes.oneOf([
+            5
+        ]),
+        ___PropTypes.oneOf([
+            \\"6\\"
+        ]),
+        ___PropTypes.any
+    ]).isRequired,
     interfaceValue: ___PropTypes.shape({
         firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
     partialIntersectionAlias: ___PropTypes.any.isRequired,
-    enum: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.oneOf([
+        0,
+        1,
+        2
+    ]).isRequired,
     id: ___PropTypes.number.isRequired
 };
 exports.InferrableStatelessFunctionalTestComponent = function (p) {
@@ -189,19 +312,60 @@ export class TestComponent extends React.Component {
 }
 TestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
+    stringLiteralProp: ___PropTypes.oneOf([
+        \\"hi\\"
+    ]).isRequired,
+    numberLiteralProp: ___PropTypes.oneOf([
+        1
+    ]).isRequired,
+    boolLiteralProp: ___PropTypes.oneOf([
+        false
+    ]).isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.any.isRequired,
-    genericArrayProp: ___PropTypes.any.isRequired,
+    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
     optionalProp: ___PropTypes.bool,
     commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.any.isRequired,
+    union: ___PropTypes.oneOf([
+        \\"a\\",
+        \\"b\\",
+        \\"c\\"
+    ]).isRequired,
+    complexUnion: ___PropTypes.oneOfType([
+        ___PropTypes.oneOf([
+            true
+        ]),
+        ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }),
+        ___PropTypes.oneOf([
+            \\"a\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"b\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"c\\"
+        ]),
+        ___PropTypes.oneOf([
+            5
+        ]),
+        ___PropTypes.oneOf([
+            \\"6\\"
+        ]),
+        ___PropTypes.any
+    ]).isRequired,
     interfaceValue: ___PropTypes.shape({
         firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
     partialIntersectionAlias: ___PropTypes.any.isRequired,
-    enum: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.oneOf([
+        0,
+        1,
+        2
+    ]).isRequired,
     id: ___PropTypes.number.isRequired
 };
 export class AlreadyHasAStaticPropTypes extends React.Component {
@@ -235,19 +399,60 @@ export const StatelessFunctionalTestComponent = (p) => {
 };
 StatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
+    stringLiteralProp: ___PropTypes.oneOf([
+        \\"hi\\"
+    ]).isRequired,
+    numberLiteralProp: ___PropTypes.oneOf([
+        1
+    ]).isRequired,
+    boolLiteralProp: ___PropTypes.oneOf([
+        false
+    ]).isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.any.isRequired,
-    genericArrayProp: ___PropTypes.any.isRequired,
+    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
     optionalProp: ___PropTypes.bool,
     commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.any.isRequired,
+    union: ___PropTypes.oneOf([
+        \\"a\\",
+        \\"b\\",
+        \\"c\\"
+    ]).isRequired,
+    complexUnion: ___PropTypes.oneOfType([
+        ___PropTypes.oneOf([
+            true
+        ]),
+        ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }),
+        ___PropTypes.oneOf([
+            \\"a\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"b\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"c\\"
+        ]),
+        ___PropTypes.oneOf([
+            5
+        ]),
+        ___PropTypes.oneOf([
+            \\"6\\"
+        ]),
+        ___PropTypes.any
+    ]).isRequired,
     interfaceValue: ___PropTypes.shape({
         firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
     partialIntersectionAlias: ___PropTypes.any.isRequired,
-    enum: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.oneOf([
+        0,
+        1,
+        2
+    ]).isRequired,
     id: ___PropTypes.number.isRequired
 };
 const NonExportedStatelessFunctionalTestComponent = (p) => {
@@ -255,19 +460,60 @@ const NonExportedStatelessFunctionalTestComponent = (p) => {
 };
 NonExportedStatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
+    stringLiteralProp: ___PropTypes.oneOf([
+        \\"hi\\"
+    ]).isRequired,
+    numberLiteralProp: ___PropTypes.oneOf([
+        1
+    ]).isRequired,
+    boolLiteralProp: ___PropTypes.oneOf([
+        false
+    ]).isRequired,
     boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.any.isRequired,
-    genericArrayProp: ___PropTypes.any.isRequired,
+    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
     optionalProp: ___PropTypes.bool,
     commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.any.isRequired,
+    union: ___PropTypes.oneOf([
+        \\"a\\",
+        \\"b\\",
+        \\"c\\"
+    ]).isRequired,
+    complexUnion: ___PropTypes.oneOfType([
+        ___PropTypes.oneOf([
+            true
+        ]),
+        ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }),
+        ___PropTypes.oneOf([
+            \\"a\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"b\\"
+        ]),
+        ___PropTypes.oneOf([
+            \\"c\\"
+        ]),
+        ___PropTypes.oneOf([
+            5
+        ]),
+        ___PropTypes.oneOf([
+            \\"6\\"
+        ]),
+        ___PropTypes.any
+    ]).isRequired,
     interfaceValue: ___PropTypes.shape({
         firstName: ___PropTypes.string.isRequired
     }).isRequired,
     intersecton: ___PropTypes.any.isRequired,
     intersectonAlias: ___PropTypes.any.isRequired,
     partialIntersectionAlias: ___PropTypes.any.isRequired,
-    enum: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.oneOf([
+        0,
+        1,
+        2
+    ]).isRequired,
     id: ___PropTypes.number.isRequired
 };
 export const InferrableStatelessFunctionalTestComponent = (p) => {

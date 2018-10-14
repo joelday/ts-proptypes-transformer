@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import { oneOf, bool } from 'prop-types';
 
 // See: https://reactjs.org/docs/typechecking-with-proptypes.html
 
@@ -45,7 +46,7 @@ import * as ts from 'typescript';
 // export function arrayOf<T>(type: Validator<T>): Requireable<T[]>;
 
 // this is shorthand for an object where every prop is of a given type
-// we'll be skipping this one
+// can do this for any non numeric indexer with no other props
 // export function objectOf<T>(type: Validator<T>): Requireable<{ [K in keyof any]: T; }>;
 
 // interfaces, including all inherited properties and merged intersections of interfaces
@@ -85,10 +86,24 @@ export class PropTypesEmitter {
     }
 
     emitForType(type: ts.Type, asShape = false) {
+        if (this.getTypeIsLiteral(type)) {
+            return this.emitAsOneOf([type]);
+        }
+
+        const primitiveType = this.getPrimitiveTypeOfType(type);
+        if (primitiveType) {
+            return this.emitPrimitiveType(primitiveType);
+        }
+
+        // We check for unions after primitives because bool is also treated as a union of true and false.
+        if (type.isUnion()) {
+            return this.emitAsOneOfType(type);
+        }
+
         if (type.isClassOrInterface() && !type.isClass()) {
             const interfaceType = this.emitInterface(type);
             if (asShape) {
-                return this.asShape(interfaceType);
+                return this.emitAsShape(interfaceType);
             }
 
             return interfaceType;
@@ -100,24 +115,15 @@ export class PropTypesEmitter {
         // TODO: Check for interfaces
         // TODO: Check for classes
 
-        const primitiveType = this.getPrimitiveTypeOfType(type);
-        if (primitiveType) {
-            return this.emitPrimitiveType(primitiveType);
-        }
-
         const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
         if (numericIndexInfo) {
-            return this.arrayOf(this.emitForType(numericIndexInfo.type, true));
+            return this.emitAsArrayOf(this.emitForType(numericIndexInfo.type, true));
         }
 
         return this.emitPrimitiveType(PropTypePrimitiveType.any);
     }
 
     private getPrimitiveTypeOfType(type: ts.Type) {
-        if (type.flags & ts.TypeFlags.Literal) {
-            return PropTypePrimitiveType.any;
-        }
-
         if (type.getCallSignatures().length > 0) {
             return PropTypePrimitiveType.func;
         }
@@ -153,7 +159,7 @@ export class PropTypesEmitter {
 
                 return ts.createPropertyAssignment(
                     p.escapedName.toString(),
-                    p.flags & ts.SymbolFlags.Optional ? member : this.asRequired(member)
+                    p.flags & ts.SymbolFlags.Optional ? member : this.emitAsRequired(member)
                 );
             }),
             true
@@ -165,17 +171,47 @@ export class PropTypesEmitter {
         return this.emitForType(memberType, true);
     }
 
-    private asShape(shapeLiteral: ts.ObjectLiteralExpression) {
+    private getTypeIsLiteral(type: ts.Type): type is ts.LiteralType {
+        return type.isLiteral() || (type.flags & ts.TypeFlags.BooleanLiteral) > 0;
+    }
+
+    private getValueOfLiteral(literal: ts.LiteralType) {
+        if (literal.flags & ts.TypeFlags.BooleanLiteral) {
+            return this._typeChecker.typeToString(literal) === 'true';
+        }
+
+        return literal.value;
+    }
+
+    private emitAsOneOf(literals: ts.LiteralType[]) {
+        const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'oneOf');
+        const literalValues = literals.map((literal) => ts.createLiteral(this.getValueOfLiteral(literal)));
+
+        return ts.createCall(functionReference, [], [ts.createArrayLiteral(literalValues, true)]);
+    }
+
+    private emitAsOneOfType(unionType: ts.UnionType) {
+        if (unionType.types.every((t) => t.isLiteral())) {
+            return this.emitAsOneOf(unionType.types as ts.LiteralType[]);
+        }
+
+        const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'oneOfType');
+        const emittedTypes = unionType.types.map((type) => this.emitForType(type, true));
+
+        return ts.createCall(functionReference, [], [ts.createArrayLiteral(emittedTypes, true)]);
+    }
+
+    private emitAsShape(shapeLiteral: ts.ObjectLiteralExpression) {
         const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'shape');
         return ts.createCall(functionReference, [], [shapeLiteral]);
     }
 
-    private arrayOf(expression: ts.Expression) {
+    private emitAsArrayOf(expression: ts.Expression) {
         const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'arrayOf');
         return ts.createCall(functionReference, [], [expression]);
     }
 
-    private asRequired(expression: ts.Expression) {
+    private emitAsRequired(expression: ts.Expression) {
         return ts.createPropertyAccess(expression, 'isRequired');
     }
 

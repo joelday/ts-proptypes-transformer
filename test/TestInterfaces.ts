@@ -20,6 +20,9 @@ export interface IBaseInterface {
 
 export interface ITestComponentProps extends IBaseInterface {
     numberProp: number;
+    stringLiteralProp: 'hi';
+    numberLiteralProp: 1;
+    boolLiteralProp: false;
     boolProp: boolean;
     arrayProp: number[];
     genericArrayProp: Array<number>;
@@ -29,6 +32,7 @@ export interface ITestComponentProps extends IBaseInterface {
      */
     commentedProp: string;
     union: 'a' | 'b' | 'c';
+    complexUnion: 5 | '6' | true | ITestComponentProps['union'] | IFirstName | Partial<FullName>;
     interfaceValue: IFirstName;
     intersecton: IFirstName & ILastName;
     intersectonAlias: FullName;
