@@ -65,12 +65,7 @@ export class PropTypesEmitter {
     private treatAsInterface(
         type: ts.Type
     ): type is ts.ObjectType | ts.InterfaceTypeWithDeclaredMembers | ts.IntersectionType {
-        return (
-            (type.isClassOrInterface() || type.isIntersection() || this.typeIsObjectType(type)) && // &&
-            // type.objectFlags & ts.ObjectFlags.Mapped &&
-            // type.objectFlags & ts.ObjectFlags.Instantiated &&
-            !type.isClass()
-        );
+        return (type.isClassOrInterface() || type.isIntersection() || this.typeIsObjectType(type)) && !type.isClass();
     }
 
     private getPrimitiveTypeOfType(type: ts.Type) {
