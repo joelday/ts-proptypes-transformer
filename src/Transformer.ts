@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import * as f from 'prop-types';
 import { PropTypesEmitter } from './PropTypesEmitter';
+
 // TODO: See if ts has already normalized file paths.
 
 const generatedImportAliasName = '___PropTypes';
@@ -69,9 +70,19 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     }
 
     function addPropTypesDeclarationToStateless(componentInfo: IStatelessReactComponentInfo, context: IContext) {
+        const needsExplicitExport =
+            componentInfo.declaration.parent.parent.modifiers &&
+            componentInfo.declaration.parent.parent.modifiers.some((m) => m.kind === ts.SyntaxKind.ExportKeyword) &&
+            (program.getCompilerOptions().target === ts.ScriptTarget.ES3 ||
+                program.getCompilerOptions().target === ts.ScriptTarget.ES5);
+
+        const componentDeclarationExpression = needsExplicitExport
+            ? ts.createPropertyAccess(ts.createIdentifier('exports'), componentInfo.name)
+            : ts.createIdentifier(componentInfo.name);
+
         const propTypesAssignment = ts.createExpressionStatement(
             ts.createBinary(
-                ts.createPropertyAccess(ts.createIdentifier(componentInfo.name), propTypesStaticPropertyName),
+                ts.createPropertyAccess(componentDeclarationExpression, propTypesStaticPropertyName),
                 ts.SyntaxKind.EqualsToken,
                 createPropTypesForType(componentInfo.propTypes, context.importAliasName)
             )

@@ -33,6 +33,10 @@ export const StatelessFunctionalTestComponent: React.SFC<ITestComponentProps> = 
     return <AnyPropsComponent {...p} />;
 };
 
+const NonExportedStatelessFunctionalTestComponent: React.SFC<ITestComponentProps> = (p) => {
+    return <AnyPropsComponent {...p} />;
+};
+
 export const InferrableStatelessFunctionalTestComponent = (p: ITestComponentProps) => {
     return <StatelessFunctionalTestComponent {...p} />;
 };

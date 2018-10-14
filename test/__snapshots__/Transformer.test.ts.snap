@@ -135,7 +135,27 @@ exports.AnyPropsComponent = AnyPropsComponent;
 exports.StatelessFunctionalTestComponent = function (p) {
     return React.createElement(AnyPropsComponent, __assign({}, p));
 };
-StatelessFunctionalTestComponent.propTypes = {
+exports.StatelessFunctionalTestComponent.propTypes = {
+    numberProp: ___PropTypes.number.isRequired,
+    boolProp: ___PropTypes.bool.isRequired,
+    arrayProp: ___PropTypes.array.isRequired,
+    genericArrayProp: ___PropTypes.array.isRequired,
+    optionalProp: ___PropTypes.bool,
+    commentedProp: ___PropTypes.array.isRequired,
+    union: ___PropTypes.array.isRequired,
+    interfaceValue: ___PropTypes.shape({
+        firstName: ___PropTypes.array.isRequired
+    }).isRequired,
+    intersecton: ___PropTypes.any.isRequired,
+    intersectonAlias: ___PropTypes.any.isRequired,
+    partialIntersectionAlias: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.any.isRequired,
+    id: ___PropTypes.number.isRequired
+};
+var NonExportedStatelessFunctionalTestComponent = function (p) {
+    return React.createElement(AnyPropsComponent, __assign({}, p));
+};
+NonExportedStatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
     arrayProp: ___PropTypes.array.isRequired,
@@ -214,6 +234,26 @@ export const StatelessFunctionalTestComponent = (p) => {
     return <AnyPropsComponent {...p}/>;
 };
 StatelessFunctionalTestComponent.propTypes = {
+    numberProp: ___PropTypes.number.isRequired,
+    boolProp: ___PropTypes.bool.isRequired,
+    arrayProp: ___PropTypes.array.isRequired,
+    genericArrayProp: ___PropTypes.array.isRequired,
+    optionalProp: ___PropTypes.bool,
+    commentedProp: ___PropTypes.array.isRequired,
+    union: ___PropTypes.array.isRequired,
+    interfaceValue: ___PropTypes.shape({
+        firstName: ___PropTypes.array.isRequired
+    }).isRequired,
+    intersecton: ___PropTypes.any.isRequired,
+    intersectonAlias: ___PropTypes.any.isRequired,
+    partialIntersectionAlias: ___PropTypes.any.isRequired,
+    enum: ___PropTypes.any.isRequired,
+    id: ___PropTypes.number.isRequired
+};
+const NonExportedStatelessFunctionalTestComponent = (p) => {
+    return <AnyPropsComponent {...p}/>;
+};
+NonExportedStatelessFunctionalTestComponent.propTypes = {
     numberProp: ___PropTypes.number.isRequired,
     boolProp: ___PropTypes.bool.isRequired,
     arrayProp: ___PropTypes.array.isRequired,
