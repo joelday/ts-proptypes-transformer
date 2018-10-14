@@ -41,6 +41,11 @@ export class PropTypesEmitter {
             return this.emitAsOneOfType(type);
         }
 
+        const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
+        if (numericIndexInfo) {
+            return this.emitAsArrayOf(this.emitForType(numericIndexInfo.type, true));
+        }
+
         if (this.treatAsInterface(type)) {
             const interfaceType = this.emitInterface(type);
             if (asShape) {
@@ -48,11 +53,6 @@ export class PropTypesEmitter {
             }
 
             return interfaceType;
-        }
-
-        const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
-        if (numericIndexInfo) {
-            return this.emitAsArrayOf(this.emitForType(numericIndexInfo.type, true));
         }
 
         return this.emitPrimitiveType(PropTypePrimitiveType.any);
@@ -66,12 +66,10 @@ export class PropTypesEmitter {
         type: ts.Type
     ): type is ts.ObjectType | ts.InterfaceTypeWithDeclaredMembers | ts.IntersectionType {
         return (
-            type.isClassOrInterface() ||
-            type.isIntersection() ||
-            (this.typeIsObjectType(type) &&
-                type.objectFlags & ts.ObjectFlags.Mapped &&
-                type.objectFlags & ts.ObjectFlags.Instantiated &&
-                !type.isClass())
+            (type.isClassOrInterface() || type.isIntersection() || this.typeIsObjectType(type)) && // &&
+            // type.objectFlags & ts.ObjectFlags.Mapped &&
+            // type.objectFlags & ts.ObjectFlags.Instantiated &&
+            !type.isClass()
         );
     }
 

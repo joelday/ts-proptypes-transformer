@@ -27,6 +27,9 @@ export class GenericPropsTestComponent5<U> extends React.Component<IGenericProps
 
 export class GenericPropsTestComponent6<U> extends GenericPropsTestComponent5<U> {}
 
+// BUG: U is not being combined here:
+export class GenericPropsTestComponent7 extends GenericPropsTestComponent6<{ foo: 'bar' }> {}
+
 export class AnyPropsComponent extends React.Component {}
 
 export const StatelessFunctionalTestComponent: React.SFC<ITestComponentProps> = (p) => {

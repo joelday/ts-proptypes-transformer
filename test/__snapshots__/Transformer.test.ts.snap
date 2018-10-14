@@ -162,7 +162,13 @@ var GenericPropsTestComponent = /** @class */ (function (_super) {
     function GenericPropsTestComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GenericPropsTestComponent.propTypes = ___PropTypes.any;
+    GenericPropsTestComponent.propTypes = {
+        propOfT: ___PropTypes.any.isRequired,
+        propOfU: ___PropTypes.any.isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+        propOfTAndU: ___PropTypes.any.isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.any).isRequired
+    };
     return GenericPropsTestComponent;
 }(React.Component));
 exports.GenericPropsTestComponent = GenericPropsTestComponent;
@@ -171,7 +177,13 @@ var GenericPropsTestComponent2 = /** @class */ (function (_super) {
     function GenericPropsTestComponent2() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GenericPropsTestComponent2.propTypes = ___PropTypes.any;
+    GenericPropsTestComponent2.propTypes = {
+        propOfT: ___PropTypes.any.isRequired,
+        propOfU: ___PropTypes.any.isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+        propOfTAndU: ___PropTypes.shape({}).isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({})).isRequired
+    };
     return GenericPropsTestComponent2;
 }(React.Component));
 exports.GenericPropsTestComponent2 = GenericPropsTestComponent2;
@@ -180,7 +192,23 @@ var GenericPropsTestComponent3 = /** @class */ (function (_super) {
     function GenericPropsTestComponent3() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GenericPropsTestComponent3.propTypes = ___PropTypes.any;
+    GenericPropsTestComponent3.propTypes = {
+        propOfT: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfU: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired,
+        propOfTAndU: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired
+    };
     return GenericPropsTestComponent3;
 }(React.Component));
 exports.GenericPropsTestComponent3 = GenericPropsTestComponent3;
@@ -189,7 +217,25 @@ var GenericPropsTestComponent4 = /** @class */ (function (_super) {
     function GenericPropsTestComponent4() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GenericPropsTestComponent4.propTypes = ___PropTypes.any;
+    GenericPropsTestComponent4.propTypes = {
+        propOfT: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfU: ___PropTypes.shape({
+            lastName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired,
+        propOfTAndU: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired,
+            lastName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired,
+            lastName: ___PropTypes.string.isRequired
+        })).isRequired
+    };
     return GenericPropsTestComponent4;
 }(React.Component));
 exports.GenericPropsTestComponent4 = GenericPropsTestComponent4;
@@ -198,7 +244,21 @@ var GenericPropsTestComponent5 = /** @class */ (function (_super) {
     function GenericPropsTestComponent5() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GenericPropsTestComponent5.propTypes = ___PropTypes.any;
+    GenericPropsTestComponent5.propTypes = {
+        propOfT: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfU: ___PropTypes.any.isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired,
+        propOfTAndU: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired
+    };
     return GenericPropsTestComponent5;
 }(React.Component));
 exports.GenericPropsTestComponent5 = GenericPropsTestComponent5;
@@ -207,16 +267,54 @@ var GenericPropsTestComponent6 = /** @class */ (function (_super) {
     function GenericPropsTestComponent6() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    GenericPropsTestComponent6.propTypes = ___PropTypes.any;
+    GenericPropsTestComponent6.propTypes = {
+        propOfT: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfU: ___PropTypes.any.isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired,
+        propOfTAndU: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired
+    };
     return GenericPropsTestComponent6;
 }(GenericPropsTestComponent5));
 exports.GenericPropsTestComponent6 = GenericPropsTestComponent6;
+// BUG: U is not being combined here:
+var GenericPropsTestComponent7 = /** @class */ (function (_super) {
+    __extends(GenericPropsTestComponent7, _super);
+    function GenericPropsTestComponent7() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    GenericPropsTestComponent7.propTypes = {
+        propOfT: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfU: ___PropTypes.any.isRequired,
+        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired,
+        propOfTAndU: ___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        }).isRequired,
+        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+            firstName: ___PropTypes.string.isRequired
+        })).isRequired
+    };
+    return GenericPropsTestComponent7;
+}(GenericPropsTestComponent6));
+exports.GenericPropsTestComponent7 = GenericPropsTestComponent7;
 var AnyPropsComponent = /** @class */ (function (_super) {
     __extends(AnyPropsComponent, _super);
     function AnyPropsComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    AnyPropsComponent.propTypes = ___PropTypes.any;
+    AnyPropsComponent.propTypes = {};
     return AnyPropsComponent;
 }(React.Component));
 exports.AnyPropsComponent = AnyPropsComponent;
@@ -563,25 +661,117 @@ export class NotAComponentClass {
 }
 export class GenericPropsTestComponent extends React.Component {
 }
-GenericPropsTestComponent.propTypes = ___PropTypes.any;
+GenericPropsTestComponent.propTypes = {
+    propOfT: ___PropTypes.any.isRequired,
+    propOfU: ___PropTypes.any.isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+    propOfTAndU: ___PropTypes.any.isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.any).isRequired
+};
 export class GenericPropsTestComponent2 extends React.Component {
 }
-GenericPropsTestComponent2.propTypes = ___PropTypes.any;
+GenericPropsTestComponent2.propTypes = {
+    propOfT: ___PropTypes.any.isRequired,
+    propOfU: ___PropTypes.any.isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+    propOfTAndU: ___PropTypes.shape({}).isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({})).isRequired
+};
 export class GenericPropsTestComponent3 extends React.Component {
 }
-GenericPropsTestComponent3.propTypes = ___PropTypes.any;
+GenericPropsTestComponent3.propTypes = {
+    propOfT: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfU: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired,
+    propOfTAndU: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired
+};
 export class GenericPropsTestComponent4 extends React.Component {
 }
-GenericPropsTestComponent4.propTypes = ___PropTypes.any;
+GenericPropsTestComponent4.propTypes = {
+    propOfT: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfU: ___PropTypes.shape({
+        lastName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired,
+    propOfTAndU: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired,
+        lastName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired,
+        lastName: ___PropTypes.string.isRequired
+    })).isRequired
+};
 export class GenericPropsTestComponent5 extends React.Component {
 }
-GenericPropsTestComponent5.propTypes = ___PropTypes.any;
+GenericPropsTestComponent5.propTypes = {
+    propOfT: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfU: ___PropTypes.any.isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired,
+    propOfTAndU: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired
+};
 export class GenericPropsTestComponent6 extends GenericPropsTestComponent5 {
 }
-GenericPropsTestComponent6.propTypes = ___PropTypes.any;
+GenericPropsTestComponent6.propTypes = {
+    propOfT: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfU: ___PropTypes.any.isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired,
+    propOfTAndU: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired
+};
+// BUG: U is not being combined here:
+export class GenericPropsTestComponent7 extends GenericPropsTestComponent6 {
+}
+GenericPropsTestComponent7.propTypes = {
+    propOfT: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfU: ___PropTypes.any.isRequired,
+    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired,
+    propOfTAndU: ___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    }).isRequired,
+    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
+        firstName: ___PropTypes.string.isRequired
+    })).isRequired
+};
 export class AnyPropsComponent extends React.Component {
 }
-AnyPropsComponent.propTypes = ___PropTypes.any;
+AnyPropsComponent.propTypes = {};
 export const StatelessFunctionalTestComponent = (p) => {
     return <AnyPropsComponent {...p}/>;
 };
