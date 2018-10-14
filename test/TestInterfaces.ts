@@ -14,6 +14,8 @@ export interface ILastName {
 
 export type FullName = IFirstName & ILastName;
 
+export type FirstOrLastName = IFirstName | ILastName;
+
 export interface IBaseInterface {
     id: number;
 }
@@ -32,6 +34,8 @@ export interface ITestComponentProps extends IBaseInterface {
      */
     commentedProp: string;
     union: 'a' | 'b' | 'c';
+    unionAlias: FirstOrLastName;
+    arrayOfUnion: ITestComponentProps['complexUnion'][];
     complexUnion: 5 | '6' | true | ITestComponentProps['union'] | IFirstName | Partial<FullName>;
     interfaceValue: IFirstName;
     intersecton: IFirstName & ILastName;

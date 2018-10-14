@@ -32,27 +32,24 @@ describe('Transformer', () => {
         const testModule = (await compileAndLoadModule(testFileName)) as typeof import('./TestComponent');
 
         expectComponentPropTypesError<ITestComponentProps>(testModule.TestComponent, {
-            // TODO:
+            arrayOfUnion: ['a', true],
             arrayProp: [],
-            numberProp: 1,
-            boolProp: true,
             boolLiteralProp: false,
+            boolProp: true,
             commentedProp: '',
+            complexUnion: 'a',
             enum: TestEnum.one,
-            // TODO:
             genericArrayProp: [],
             id: 1,
             interfaceValue: { firstName: 'firstName' },
             intersecton: { firstName: 'firstName', lastName: 'lastName' },
-            // TODO:
             intersectonAlias: { firstName: 'firstName', lastName: 'lastName' },
-            // TODO:
-            partialIntersectionAlias: { lastName: 'lastName' },
-            // TODO:
-            union: 'a',
             numberLiteralProp: 1,
+            numberProp: 1,
+            partialIntersectionAlias: {},
             stringLiteralProp: 'hi',
-            complexUnion: 'a',
+            union: 'a',
+            unionAlias: { firstName: 'firstName' },
         }).toHaveLength(0);
     });
 
@@ -60,22 +57,24 @@ describe('Transformer', () => {
         const testModule = (await compileAndLoadModule(testFileName)) as typeof import('./TestComponent');
 
         expectComponentPropTypesError<ITestComponentProps>(testModule.TestComponent, {
+            arrayOfUnion: ['a', false] as any,
             arrayProp: 1 as any,
-            numberProp: 'a' as any,
-            boolProp: 'a' as any,
             boolLiteralProp: true as any,
+            boolProp: 'a' as any,
             commentedProp: undefined,
+            complexUnion: 'jibberish' as any,
             enum: 'a' as any,
             genericArrayProp: 'a' as any,
             id: 'a' as any,
             interfaceValue: { firstName: 0 as any },
             intersecton: {} as any,
             intersectonAlias: { firstName: 'firstName' } as any,
-            partialIntersectionAlias: { whoKnows: 'lastName' } as any,
-            union: 'd' as any,
             numberLiteralProp: 'hi' as any,
+            numberProp: 'a' as any,
+            partialIntersectionAlias: 2 as any,
             stringLiteralProp: 1 as any,
-            complexUnion: 'jibberish' as any,
-        }).not.toHaveLength(0); // toHaveLength(15);
+            union: 'd' as any,
+            unionAlias: { whoKnows: 'lastName' } as any,
+        }).toHaveLength(18);
     });
 });

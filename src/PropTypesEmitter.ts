@@ -100,7 +100,7 @@ export class PropTypesEmitter {
             return this.emitAsOneOfType(type);
         }
 
-        if (type.isClassOrInterface() && !type.isClass()) {
+        if (this.treatAsInterface(type)) {
             const interfaceType = this.emitInterface(type);
             if (asShape) {
                 return this.emitAsShape(interfaceType);
@@ -109,18 +109,29 @@ export class PropTypesEmitter {
             return interfaceType;
         }
 
-        // TODO: Check for unions
-        // TODO: Check for intersections
-        // TODO: Check for literals
-        // TODO: Check for interfaces
-        // TODO: Check for classes
-
         const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
         if (numericIndexInfo) {
             return this.emitAsArrayOf(this.emitForType(numericIndexInfo.type, true));
         }
 
         return this.emitPrimitiveType(PropTypePrimitiveType.any);
+    }
+
+    private typeIsObjectType(type: ts.Type): type is ts.ObjectType {
+        return (type.flags & ts.TypeFlags.Object) !== 0;
+    }
+
+    private treatAsInterface(
+        type: ts.Type
+    ): type is ts.ObjectType | ts.InterfaceTypeWithDeclaredMembers | ts.IntersectionType {
+        return (
+            type.isClassOrInterface() ||
+            type.isIntersection() ||
+            (this.typeIsObjectType(type) &&
+                type.objectFlags & ts.ObjectFlags.Mapped &&
+                type.objectFlags & ts.ObjectFlags.Instantiated &&
+                !type.isClass())
+        );
     }
 
     private getPrimitiveTypeOfType(type: ts.Type) {
@@ -151,7 +162,7 @@ export class PropTypesEmitter {
         return null;
     }
 
-    private emitInterface(type: ts.InterfaceTypeWithDeclaredMembers) {
+    private emitInterface(type: ts.InterfaceTypeWithDeclaredMembers | ts.IntersectionType | ts.ObjectType) {
         const properties = type.getApparentProperties();
         return ts.createObjectLiteral(
             properties.map((p) => {
