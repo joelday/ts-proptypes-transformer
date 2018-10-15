@@ -47,7 +47,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             /@types\/react/,
         ]);
         const emitted = emitter.emitForType(type);
-        if (typeof emitted === 'function') {
+        if (emitted.kind !== ts.SyntaxKind.ObjectLiteralExpression) {
             return null;
         }
 
