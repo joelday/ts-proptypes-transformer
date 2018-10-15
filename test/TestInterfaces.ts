@@ -22,6 +22,14 @@ export interface IBaseInterface {
     id: number;
 }
 
+export interface ICallable {
+    (): boolean;
+}
+
+export interface INewable {
+    new (): IFirstName;
+}
+
 export interface ITestComponentProps extends IBaseInterface {
     numberProp: number;
     stringLiteralProp: 'hi';
@@ -47,6 +55,9 @@ export interface ITestComponentProps extends IBaseInterface {
     optionalSelfReferencing?: ITestComponentProps;
     css?: CSSProperties;
     dom?: CSSStyleDeclaration;
+    callable: ICallable;
+    newable: INewable;
+    typeOf: typeof String;
 }
 
 export interface IGenericPropsTestComponentProps<T, U = T> {

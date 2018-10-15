@@ -86,7 +86,7 @@ export class PropTypesEmitter {
     }
 
     private getPrimitiveTypeOfType(type: ts.Type) {
-        if (type.getCallSignatures().length > 0) {
+        if (type.getConstructSignatures().length > 0 || type.getCallSignatures().length > 0) {
             return PropTypePrimitiveType.func;
         }
 

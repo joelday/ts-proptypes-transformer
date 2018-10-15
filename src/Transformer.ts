@@ -3,7 +3,7 @@ import { PropTypesEmitter } from './PropTypesEmitter';
 
 // TODO: See if ts has already normalized file paths.
 
-const generatedImportAliasName = '___PropTypes';
+const generatedImportAliasName = '_pt_';
 const propTypesPackageName = 'prop-types';
 const reactPackageName = 'react';
 const propTypesStaticPropertyName = 'propTypes';
@@ -96,28 +96,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         context.statements.splice(declarationIndex + 1, 0, propTypesAssignment);
     }
 
-    function findExistingPropTypesImportAliasName(node: ts.Node) {
-        const aliasSymbols = typeChecker.getSymbolsInScope(node, ts.SymbolFlags.Alias);
-        const propTypesAlias = aliasSymbols.find((s) => {
-            const aliased = typeChecker.getAliasedSymbol(s);
-            if (!aliased.valueDeclaration) {
-                return false;
-            }
-
-            return aliased.valueDeclaration.getSourceFile().fileName.endsWith(`${propTypesPackageName}/index.d.ts`);
-        });
-
-        if (propTypesAlias) {
-            return propTypesAlias.getEscapedName().toString();
-        }
-    }
-
-    function ensurePropTypesImport(sourceFile: ts.SourceFile, context: IContext) {
-        context.importAliasName = findExistingPropTypesImportAliasName(sourceFile);
-        if (context.importAliasName) {
-            return;
-        }
-
+    function addPropTypesImport(context: IContext) {
         context.statements.unshift(
             ts.createImportDeclaration(
                 [],
@@ -249,7 +228,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             return context.statements;
         }
 
-        ensurePropTypesImport(sourceFile, context);
+        addPropTypesImport(context);
 
         for (const componentInfo of componentInfos) {
             if (componentInfo.kind === 'class') {

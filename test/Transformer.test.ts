@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { ITestComponentProps, TestEnum } from './TestInterfaces';
+import { ITestComponentProps, TestEnum, IFirstName } from './TestInterfaces';
 
 const testFileName = 'test/TestComponent.tsx';
 
@@ -50,6 +50,11 @@ describe('Transformer', () => {
             stringLiteralProp: 'hi',
             union: 'a',
             unionAlias: { firstName: 'firstName' },
+            callable: () => true,
+            newable: class Blah implements IFirstName {
+                firstName: string;
+            },
+            typeOf: String,
         }).toHaveLength(0);
     });
 
@@ -75,6 +80,9 @@ describe('Transformer', () => {
             stringLiteralProp: 1 as any,
             union: 'd' as any,
             unionAlias: { whoKnows: 'lastName' } as any,
-        }).toHaveLength(18);
+            callable: {} as any,
+            newable: 'wooh' as any,
+            typeOf: 2 as any,
+        }).toHaveLength(21);
     });
 });
