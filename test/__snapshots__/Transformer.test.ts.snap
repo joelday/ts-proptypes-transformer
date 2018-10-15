@@ -35,40 +35,40 @@ var TestComponent = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     TestComponent.propTypes = {
-        numberProp: ___PropTypes.number.isRequired,
-        stringLiteralProp: ___PropTypes.oneOf([
+        'numberProp': ___PropTypes.number.isRequired,
+        'stringLiteralProp': ___PropTypes.oneOf([
             \\"hi\\"
         ]).isRequired,
-        numberLiteralProp: ___PropTypes.oneOf([
+        'numberLiteralProp': ___PropTypes.oneOf([
             1
         ]).isRequired,
-        boolLiteralProp: ___PropTypes.oneOf([
+        'boolLiteralProp': ___PropTypes.oneOf([
             false
         ]).isRequired,
-        boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.oneOf([
+        'boolProp': ___PropTypes.bool.isRequired,
+        'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'optionalProp': ___PropTypes.bool,
+        'commentedProp': ___PropTypes.string.isRequired,
+        'union': ___PropTypes.oneOf([
             \\"a\\",
             \\"b\\",
             \\"c\\"
         ]).isRequired,
-        unionAlias: ___PropTypes.oneOfType([
+        'unionAlias': ___PropTypes.oneOfType([
             ___PropTypes.shape({
-                firstName: ___PropTypes.string.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.shape({
-                lastName: ___PropTypes.string.isRequired
+                'lastName': ___PropTypes.string.isRequired
             })
         ]).isRequired,
-        arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
+        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -86,16 +86,16 @@ var TestComponent = /** @class */ (function (_super) {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ])).isRequired,
-        complexUnion: ___PropTypes.oneOfType([
+        'complexUnion': ___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.string.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -113,75 +113,65 @@ var TestComponent = /** @class */ (function (_super) {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.string,
-                lastName: ___PropTypes.string
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ]).isRequired,
-        interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'interfaceValue': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersecton: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersecton': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersectonAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersectonAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        partialIntersectionAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+        'partialIntersectionAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         }).isRequired,
-        enum: ___PropTypes.oneOf([
+        'enum': ___PropTypes.oneOf([
             0,
             1,
             2
         ]).isRequired,
-        optionalSelfReferencing: ___PropTypes.shape({
-            numberProp: ___PropTypes.number.isRequired,
-            stringLiteralProp: ___PropTypes.oneOf([
+        'optionalSelfReferencing': ___PropTypes.shape({
+            'numberProp': ___PropTypes.number.isRequired,
+            'stringLiteralProp': ___PropTypes.oneOf([
                 \\"hi\\"
             ]).isRequired,
-            numberLiteralProp: ___PropTypes.oneOf([
+            'numberLiteralProp': ___PropTypes.oneOf([
                 1
             ]).isRequired,
-            boolLiteralProp: ___PropTypes.oneOf([
+            'boolLiteralProp': ___PropTypes.oneOf([
                 false
             ]).isRequired,
-            boolProp: ___PropTypes.bool.isRequired,
-            arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-            genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-            optionalProp: ___PropTypes.bool,
-            commentedProp: ___PropTypes.string.isRequired,
-            union: ___PropTypes.oneOf([
+            'boolProp': ___PropTypes.bool.isRequired,
+            'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'optionalProp': ___PropTypes.bool,
+            'commentedProp': ___PropTypes.string.isRequired,
+            'union': ___PropTypes.oneOf([
                 \\"a\\",
                 \\"b\\",
                 \\"c\\"
             ]).isRequired,
-            unionAlias: ___PropTypes.oneOfType([
+            'unionAlias': ___PropTypes.oneOfType([
                 ___PropTypes.shape({
-                    firstName: ___PropTypes.any.isRequired
+                    'firstName': ___PropTypes.string.isRequired
                 }),
                 ___PropTypes.shape({
-                    lastName: ___PropTypes.any.isRequired
+                    'lastName': ___PropTypes.string.isRequired
                 })
             ]).isRequired,
-            arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any
-            ])).isRequired,
-            complexUnion: ___PropTypes.oneOfType([
+            'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
                 ___PropTypes.oneOf([
                     true
                 ]),
                 ___PropTypes.shape({
-                    firstName: ___PropTypes.any.isRequired
+                    'firstName': ___PropTypes.string.isRequired
                 }),
                 ___PropTypes.oneOf([
                     \\"a\\"
@@ -199,113 +189,345 @@ var TestComponent = /** @class */ (function (_super) {
                     \\"6\\"
                 ]),
                 ___PropTypes.shape({
-                    firstName: ___PropTypes.any,
-                    lastName: ___PropTypes.any
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                })
+            ])).isRequired,
+            'complexUnion': ___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
                 })
             ]).isRequired,
-            interfaceValue: ___PropTypes.shape({
-                firstName: ___PropTypes.string.isRequired
+            'interfaceValue': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersecton: ___PropTypes.shape({
-                firstName: ___PropTypes.string.isRequired,
-                lastName: ___PropTypes.string.isRequired
+            'intersecton': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersectonAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.string.isRequired,
-                lastName: ___PropTypes.string.isRequired
+            'intersectonAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            partialIntersectionAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.string,
-                lastName: ___PropTypes.string
+            'partialIntersectionAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             }).isRequired,
-            enum: ___PropTypes.oneOf([
+            'enum': ___PropTypes.oneOf([
                 0,
                 1,
                 2
             ]).isRequired,
-            optionalSelfReferencing: ___PropTypes.shape({
-                numberProp: ___PropTypes.number.isRequired,
-                stringLiteralProp: ___PropTypes.oneOf([
+            'optionalSelfReferencing': ___PropTypes.shape({
+                'numberProp': ___PropTypes.number.isRequired,
+                'stringLiteralProp': ___PropTypes.oneOf([
                     \\"hi\\"
                 ]).isRequired,
-                numberLiteralProp: ___PropTypes.oneOf([
+                'numberLiteralProp': ___PropTypes.oneOf([
                     1
                 ]).isRequired,
-                boolLiteralProp: ___PropTypes.oneOf([
+                'boolLiteralProp': ___PropTypes.oneOf([
                     false
                 ]).isRequired,
-                boolProp: ___PropTypes.bool.isRequired,
-                arrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-                genericArrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-                optionalProp: ___PropTypes.bool,
-                commentedProp: ___PropTypes.string.isRequired,
-                union: ___PropTypes.oneOf([
+                'boolProp': ___PropTypes.bool.isRequired,
+                'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'optionalProp': ___PropTypes.bool,
+                'commentedProp': ___PropTypes.string.isRequired,
+                'union': ___PropTypes.oneOf([
                     \\"a\\",
                     \\"b\\",
                     \\"c\\"
                 ]).isRequired,
-                unionAlias: ___PropTypes.oneOfType([
-                    ___PropTypes.any,
-                    ___PropTypes.any
+                'unionAlias': ___PropTypes.oneOfType([
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.string.isRequired
+                    }),
+                    ___PropTypes.shape({
+                        'lastName': ___PropTypes.string.isRequired
+                    })
                 ]).isRequired,
-                arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-                complexUnion: ___PropTypes.oneOfType([
-                    ___PropTypes.any,
-                    ___PropTypes.any,
-                    ___PropTypes.any,
-                    ___PropTypes.any,
-                    ___PropTypes.any,
-                    ___PropTypes.any,
-                    ___PropTypes.any,
-                    ___PropTypes.any
+                'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    })
+                ])).isRequired,
+                'complexUnion': ___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.string.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.string,
+                        'lastName': ___PropTypes.string
+                    })
                 ]).isRequired,
-                interfaceValue: ___PropTypes.shape({
-                    firstName: ___PropTypes.any.isRequired
+                'interfaceValue': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
                 }).isRequired,
-                intersecton: ___PropTypes.shape({
-                    firstName: ___PropTypes.any.isRequired,
-                    lastName: ___PropTypes.any.isRequired
+                'intersecton': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
                 }).isRequired,
-                intersectonAlias: ___PropTypes.shape({
-                    firstName: ___PropTypes.any.isRequired,
-                    lastName: ___PropTypes.any.isRequired
+                'intersectonAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
                 }).isRequired,
-                partialIntersectionAlias: ___PropTypes.shape({
-                    firstName: ___PropTypes.any,
-                    lastName: ___PropTypes.any
+                'partialIntersectionAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
                 }).isRequired,
-                enum: ___PropTypes.oneOf([
+                'enum': ___PropTypes.oneOf([
                     0,
                     1,
                     2
                 ]).isRequired,
-                optionalSelfReferencing: ___PropTypes.shape({
-                    numberProp: ___PropTypes.any.isRequired,
-                    stringLiteralProp: ___PropTypes.any.isRequired,
-                    numberLiteralProp: ___PropTypes.any.isRequired,
-                    boolLiteralProp: ___PropTypes.any.isRequired,
-                    boolProp: ___PropTypes.any.isRequired,
-                    arrayProp: ___PropTypes.any.isRequired,
-                    genericArrayProp: ___PropTypes.any.isRequired,
-                    optionalProp: ___PropTypes.any,
-                    commentedProp: ___PropTypes.any.isRequired,
-                    union: ___PropTypes.any.isRequired,
-                    unionAlias: ___PropTypes.any.isRequired,
-                    arrayOfUnion: ___PropTypes.any.isRequired,
-                    complexUnion: ___PropTypes.any.isRequired,
-                    interfaceValue: ___PropTypes.any.isRequired,
-                    intersecton: ___PropTypes.any.isRequired,
-                    intersectonAlias: ___PropTypes.any.isRequired,
-                    partialIntersectionAlias: ___PropTypes.any.isRequired,
-                    enum: ___PropTypes.any.isRequired,
-                    optionalSelfReferencing: ___PropTypes.any,
-                    id: ___PropTypes.any.isRequired
+                'optionalSelfReferencing': ___PropTypes.shape({
+                    'numberProp': ___PropTypes.number.isRequired,
+                    'stringLiteralProp': ___PropTypes.oneOf([
+                        \\"hi\\"
+                    ]).isRequired,
+                    'numberLiteralProp': ___PropTypes.oneOf([
+                        1
+                    ]).isRequired,
+                    'boolLiteralProp': ___PropTypes.oneOf([
+                        false
+                    ]).isRequired,
+                    'boolProp': ___PropTypes.bool.isRequired,
+                    'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                    'optionalProp': ___PropTypes.bool,
+                    'commentedProp': ___PropTypes.string.isRequired,
+                    'union': ___PropTypes.oneOf([
+                        \\"a\\",
+                        \\"b\\",
+                        \\"c\\"
+                    ]).isRequired,
+                    'unionAlias': ___PropTypes.oneOfType([
+                        ___PropTypes.shape({
+                            'firstName': ___PropTypes.any.isRequired
+                        }),
+                        ___PropTypes.shape({
+                            'lastName': ___PropTypes.any.isRequired
+                        })
+                    ]).isRequired,
+                    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ])).isRequired,
+                    'complexUnion': ___PropTypes.oneOfType([
+                        ___PropTypes.oneOf([
+                            true
+                        ]),
+                        ___PropTypes.shape({
+                            'firstName': ___PropTypes.any.isRequired
+                        }),
+                        ___PropTypes.oneOf([
+                            \\"a\\"
+                        ]),
+                        ___PropTypes.oneOf([
+                            \\"b\\"
+                        ]),
+                        ___PropTypes.oneOf([
+                            \\"c\\"
+                        ]),
+                        ___PropTypes.oneOf([
+                            5
+                        ]),
+                        ___PropTypes.oneOf([
+                            \\"6\\"
+                        ]),
+                        ___PropTypes.shape({
+                            'firstName': ___PropTypes.any,
+                            'lastName': ___PropTypes.any
+                        })
+                    ]).isRequired,
+                    'interfaceValue': ___PropTypes.shape({
+                        'firstName': ___PropTypes.string.isRequired
+                    }).isRequired,
+                    'intersecton': ___PropTypes.shape({
+                        'firstName': ___PropTypes.string.isRequired,
+                        'lastName': ___PropTypes.string.isRequired
+                    }).isRequired,
+                    'intersectonAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.string.isRequired,
+                        'lastName': ___PropTypes.string.isRequired
+                    }).isRequired,
+                    'partialIntersectionAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.string,
+                        'lastName': ___PropTypes.string
+                    }).isRequired,
+                    'enum': ___PropTypes.oneOf([
+                        0,
+                        1,
+                        2
+                    ]).isRequired,
+                    'optionalSelfReferencing': ___PropTypes.shape({
+                        'numberProp': ___PropTypes.number.isRequired,
+                        'stringLiteralProp': ___PropTypes.oneOf([
+                            \\"hi\\"
+                        ]).isRequired,
+                        'numberLiteralProp': ___PropTypes.oneOf([
+                            1
+                        ]).isRequired,
+                        'boolLiteralProp': ___PropTypes.oneOf([
+                            false
+                        ]).isRequired,
+                        'boolProp': ___PropTypes.bool.isRequired,
+                        'arrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                        'optionalProp': ___PropTypes.bool,
+                        'commentedProp': ___PropTypes.string.isRequired,
+                        'union': ___PropTypes.oneOf([
+                            \\"a\\",
+                            \\"b\\",
+                            \\"c\\"
+                        ]).isRequired,
+                        'unionAlias': ___PropTypes.oneOfType([
+                            ___PropTypes.any,
+                            ___PropTypes.any
+                        ]).isRequired,
+                        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                        'complexUnion': ___PropTypes.oneOfType([
+                            ___PropTypes.any,
+                            ___PropTypes.any,
+                            ___PropTypes.any,
+                            ___PropTypes.any,
+                            ___PropTypes.any,
+                            ___PropTypes.any,
+                            ___PropTypes.any,
+                            ___PropTypes.any
+                        ]).isRequired,
+                        'interfaceValue': ___PropTypes.shape({
+                            'firstName': ___PropTypes.any.isRequired
+                        }).isRequired,
+                        'intersecton': ___PropTypes.shape({
+                            'firstName': ___PropTypes.any.isRequired,
+                            'lastName': ___PropTypes.any.isRequired
+                        }).isRequired,
+                        'intersectonAlias': ___PropTypes.shape({
+                            'firstName': ___PropTypes.any.isRequired,
+                            'lastName': ___PropTypes.any.isRequired
+                        }).isRequired,
+                        'partialIntersectionAlias': ___PropTypes.shape({
+                            'firstName': ___PropTypes.any,
+                            'lastName': ___PropTypes.any
+                        }).isRequired,
+                        'enum': ___PropTypes.oneOf([
+                            0,
+                            1,
+                            2
+                        ]).isRequired,
+                        'optionalSelfReferencing': ___PropTypes.shape({
+                            'numberProp': ___PropTypes.any.isRequired,
+                            'stringLiteralProp': ___PropTypes.any.isRequired,
+                            'numberLiteralProp': ___PropTypes.any.isRequired,
+                            'boolLiteralProp': ___PropTypes.any.isRequired,
+                            'boolProp': ___PropTypes.any.isRequired,
+                            'arrayProp': ___PropTypes.any.isRequired,
+                            'genericArrayProp': ___PropTypes.any.isRequired,
+                            'optionalProp': ___PropTypes.any,
+                            'commentedProp': ___PropTypes.any.isRequired,
+                            'union': ___PropTypes.any.isRequired,
+                            'unionAlias': ___PropTypes.any.isRequired,
+                            'arrayOfUnion': ___PropTypes.any.isRequired,
+                            'complexUnion': ___PropTypes.any.isRequired,
+                            'interfaceValue': ___PropTypes.any.isRequired,
+                            'intersecton': ___PropTypes.any.isRequired,
+                            'intersectonAlias': ___PropTypes.any.isRequired,
+                            'partialIntersectionAlias': ___PropTypes.any.isRequired,
+                            'enum': ___PropTypes.any.isRequired,
+                            'optionalSelfReferencing': ___PropTypes.any,
+                            'css': ___PropTypes.any,
+                            'dom': ___PropTypes.any,
+                            'id': ___PropTypes.any.isRequired
+                        }),
+                        'css': ___PropTypes.shape({}),
+                        'dom': ___PropTypes.arrayOf(___PropTypes.any),
+                        'id': ___PropTypes.number.isRequired
+                    }),
+                    'css': ___PropTypes.shape({}),
+                    'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                    'id': ___PropTypes.number.isRequired
                 }),
-                id: ___PropTypes.number.isRequired
+                'css': ___PropTypes.shape({}),
+                'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                'id': ___PropTypes.number.isRequired
             }),
-            id: ___PropTypes.number.isRequired
+            'css': ___PropTypes.shape({}),
+            'dom': ___PropTypes.arrayOf(___PropTypes.string),
+            'id': ___PropTypes.number.isRequired
         }),
-        id: ___PropTypes.number.isRequired
+        'css': ___PropTypes.shape({}),
+        'dom': ___PropTypes.arrayOf(___PropTypes.string),
+        'id': ___PropTypes.number.isRequired
     };
     return TestComponent;
 }(React.Component));
@@ -331,11 +553,11 @@ var GenericPropsTestComponent = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent.propTypes = {
-        propOfT: ___PropTypes.any.isRequired,
-        propOfU: ___PropTypes.any.isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-        propOfTAndU: ___PropTypes.any.isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.any).isRequired
+        'propOfT': ___PropTypes.any.isRequired,
+        'propOfU': ___PropTypes.any.isRequired,
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+        'propOfTAndU': ___PropTypes.any.isRequired,
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.any).isRequired
     };
     return GenericPropsTestComponent;
 }(React.Component));
@@ -346,11 +568,11 @@ var GenericPropsTestComponent2 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent2.propTypes = {
-        propOfT: ___PropTypes.any.isRequired,
-        propOfU: ___PropTypes.any.isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-        propOfTAndU: ___PropTypes.shape({}).isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({})).isRequired
+        'propOfT': ___PropTypes.any.isRequired,
+        'propOfU': ___PropTypes.any.isRequired,
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+        'propOfTAndU': ___PropTypes.shape({}).isRequired,
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({})).isRequired
     };
     return GenericPropsTestComponent2;
 }(React.Component));
@@ -361,20 +583,20 @@ var GenericPropsTestComponent3 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent3.propTypes = {
-        propOfT: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfT': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfU: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfU': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired,
-        propOfTAndU: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfTAndU': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired
     };
     return GenericPropsTestComponent3;
@@ -386,22 +608,22 @@ var GenericPropsTestComponent4 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent4.propTypes = {
-        propOfT: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfT': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfU: ___PropTypes.shape({
-            lastName: ___PropTypes.string.isRequired
+        'propOfU': ___PropTypes.shape({
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired,
-        propOfTAndU: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'propOfTAndU': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         })).isRequired
     };
     return GenericPropsTestComponent4;
@@ -413,18 +635,18 @@ var GenericPropsTestComponent5 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent5.propTypes = {
-        propOfT: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfT': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfU: ___PropTypes.any.isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfU': ___PropTypes.any.isRequired,
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired,
-        propOfTAndU: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfTAndU': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired
     };
     return GenericPropsTestComponent5;
@@ -436,18 +658,18 @@ var GenericPropsTestComponent6 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent6.propTypes = {
-        propOfT: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfT': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfU: ___PropTypes.any.isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfU': ___PropTypes.any.isRequired,
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired,
-        propOfTAndU: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfTAndU': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired
     };
     return GenericPropsTestComponent6;
@@ -460,18 +682,18 @@ var GenericPropsTestComponent7 = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     GenericPropsTestComponent7.propTypes = {
-        propOfT: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfT': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfU: ___PropTypes.any.isRequired,
-        propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfU': ___PropTypes.any.isRequired,
+        'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired,
-        propOfTAndU: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfTAndU': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         })).isRequired
     };
     return GenericPropsTestComponent7;
@@ -490,40 +712,40 @@ exports.StatelessFunctionalTestComponent = function (p) {
     return React.createElement(AnyPropsComponent, __assign({}, p));
 };
 exports.StatelessFunctionalTestComponent.propTypes = {
-    numberProp: ___PropTypes.number.isRequired,
-    stringLiteralProp: ___PropTypes.oneOf([
+    'numberProp': ___PropTypes.number.isRequired,
+    'stringLiteralProp': ___PropTypes.oneOf([
         \\"hi\\"
     ]).isRequired,
-    numberLiteralProp: ___PropTypes.oneOf([
+    'numberLiteralProp': ___PropTypes.oneOf([
         1
     ]).isRequired,
-    boolLiteralProp: ___PropTypes.oneOf([
+    'boolLiteralProp': ___PropTypes.oneOf([
         false
     ]).isRequired,
-    boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.oneOf([
+    'boolProp': ___PropTypes.bool.isRequired,
+    'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'optionalProp': ___PropTypes.bool,
+    'commentedProp': ___PropTypes.string.isRequired,
+    'union': ___PropTypes.oneOf([
         \\"a\\",
         \\"b\\",
         \\"c\\"
     ]).isRequired,
-    unionAlias: ___PropTypes.oneOfType([
+    'unionAlias': ___PropTypes.oneOfType([
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.shape({
-            lastName: ___PropTypes.string.isRequired
+            'lastName': ___PropTypes.string.isRequired
         })
     ]).isRequired,
-    arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
+    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -541,16 +763,16 @@ exports.StatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any,
-            lastName: ___PropTypes.any
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ])).isRequired,
-    complexUnion: ___PropTypes.oneOfType([
+    'complexUnion': ___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -568,75 +790,65 @@ exports.StatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ]).isRequired,
-    interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'interfaceValue': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersecton: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersecton': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersectonAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersectonAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    partialIntersectionAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string,
-        lastName: ___PropTypes.string
+    'partialIntersectionAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string,
+        'lastName': ___PropTypes.string
     }).isRequired,
-    enum: ___PropTypes.oneOf([
+    'enum': ___PropTypes.oneOf([
         0,
         1,
         2
     ]).isRequired,
-    optionalSelfReferencing: ___PropTypes.shape({
-        numberProp: ___PropTypes.number.isRequired,
-        stringLiteralProp: ___PropTypes.oneOf([
+    'optionalSelfReferencing': ___PropTypes.shape({
+        'numberProp': ___PropTypes.number.isRequired,
+        'stringLiteralProp': ___PropTypes.oneOf([
             \\"hi\\"
         ]).isRequired,
-        numberLiteralProp: ___PropTypes.oneOf([
+        'numberLiteralProp': ___PropTypes.oneOf([
             1
         ]).isRequired,
-        boolLiteralProp: ___PropTypes.oneOf([
+        'boolLiteralProp': ___PropTypes.oneOf([
             false
         ]).isRequired,
-        boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.oneOf([
+        'boolProp': ___PropTypes.bool.isRequired,
+        'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'optionalProp': ___PropTypes.bool,
+        'commentedProp': ___PropTypes.string.isRequired,
+        'union': ___PropTypes.oneOf([
             \\"a\\",
             \\"b\\",
             \\"c\\"
         ]).isRequired,
-        unionAlias: ___PropTypes.oneOfType([
+        'unionAlias': ___PropTypes.oneOfType([
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.shape({
-                lastName: ___PropTypes.any.isRequired
+                'lastName': ___PropTypes.string.isRequired
             })
         ]).isRequired,
-        arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any
-        ])).isRequired,
-        complexUnion: ___PropTypes.oneOfType([
+        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -654,152 +866,384 @@ exports.StatelessFunctionalTestComponent.propTypes = {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
+            })
+        ])).isRequired,
+        'complexUnion': ___PropTypes.oneOfType([
+            ___PropTypes.oneOf([
+                true
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
+            }),
+            ___PropTypes.oneOf([
+                \\"a\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"b\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"c\\"
+            ]),
+            ___PropTypes.oneOf([
+                5
+            ]),
+            ___PropTypes.oneOf([
+                \\"6\\"
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ]).isRequired,
-        interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'interfaceValue': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersecton: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersecton': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersectonAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersectonAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        partialIntersectionAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+        'partialIntersectionAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         }).isRequired,
-        enum: ___PropTypes.oneOf([
+        'enum': ___PropTypes.oneOf([
             0,
             1,
             2
         ]).isRequired,
-        optionalSelfReferencing: ___PropTypes.shape({
-            numberProp: ___PropTypes.number.isRequired,
-            stringLiteralProp: ___PropTypes.oneOf([
+        'optionalSelfReferencing': ___PropTypes.shape({
+            'numberProp': ___PropTypes.number.isRequired,
+            'stringLiteralProp': ___PropTypes.oneOf([
                 \\"hi\\"
             ]).isRequired,
-            numberLiteralProp: ___PropTypes.oneOf([
+            'numberLiteralProp': ___PropTypes.oneOf([
                 1
             ]).isRequired,
-            boolLiteralProp: ___PropTypes.oneOf([
+            'boolLiteralProp': ___PropTypes.oneOf([
                 false
             ]).isRequired,
-            boolProp: ___PropTypes.bool.isRequired,
-            arrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            genericArrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            optionalProp: ___PropTypes.bool,
-            commentedProp: ___PropTypes.string.isRequired,
-            union: ___PropTypes.oneOf([
+            'boolProp': ___PropTypes.bool.isRequired,
+            'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'optionalProp': ___PropTypes.bool,
+            'commentedProp': ___PropTypes.string.isRequired,
+            'union': ___PropTypes.oneOf([
                 \\"a\\",
                 \\"b\\",
                 \\"c\\"
             ]).isRequired,
-            unionAlias: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any
+            'unionAlias': ___PropTypes.oneOfType([
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.shape({
+                    'lastName': ___PropTypes.string.isRequired
+                })
             ]).isRequired,
-            arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            complexUnion: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any
+            'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any,
+                    'lastName': ___PropTypes.any
+                })
+            ])).isRequired,
+            'complexUnion': ___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                })
             ]).isRequired,
-            interfaceValue: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+            'interfaceValue': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersecton: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersecton': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersectonAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersectonAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            partialIntersectionAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+            'partialIntersectionAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             }).isRequired,
-            enum: ___PropTypes.oneOf([
+            'enum': ___PropTypes.oneOf([
                 0,
                 1,
                 2
             ]).isRequired,
-            optionalSelfReferencing: ___PropTypes.shape({
-                numberProp: ___PropTypes.any.isRequired,
-                stringLiteralProp: ___PropTypes.any.isRequired,
-                numberLiteralProp: ___PropTypes.any.isRequired,
-                boolLiteralProp: ___PropTypes.any.isRequired,
-                boolProp: ___PropTypes.any.isRequired,
-                arrayProp: ___PropTypes.any.isRequired,
-                genericArrayProp: ___PropTypes.any.isRequired,
-                optionalProp: ___PropTypes.any,
-                commentedProp: ___PropTypes.any.isRequired,
-                union: ___PropTypes.any.isRequired,
-                unionAlias: ___PropTypes.any.isRequired,
-                arrayOfUnion: ___PropTypes.any.isRequired,
-                complexUnion: ___PropTypes.any.isRequired,
-                interfaceValue: ___PropTypes.any.isRequired,
-                intersecton: ___PropTypes.any.isRequired,
-                intersectonAlias: ___PropTypes.any.isRequired,
-                partialIntersectionAlias: ___PropTypes.any.isRequired,
-                enum: ___PropTypes.any.isRequired,
-                optionalSelfReferencing: ___PropTypes.any,
-                id: ___PropTypes.any.isRequired
+            'optionalSelfReferencing': ___PropTypes.shape({
+                'numberProp': ___PropTypes.number.isRequired,
+                'stringLiteralProp': ___PropTypes.oneOf([
+                    \\"hi\\"
+                ]).isRequired,
+                'numberLiteralProp': ___PropTypes.oneOf([
+                    1
+                ]).isRequired,
+                'boolLiteralProp': ___PropTypes.oneOf([
+                    false
+                ]).isRequired,
+                'boolProp': ___PropTypes.bool.isRequired,
+                'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'optionalProp': ___PropTypes.bool,
+                'commentedProp': ___PropTypes.string.isRequired,
+                'union': ___PropTypes.oneOf([
+                    \\"a\\",
+                    \\"b\\",
+                    \\"c\\"
+                ]).isRequired,
+                'unionAlias': ___PropTypes.oneOfType([
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.shape({
+                        'lastName': ___PropTypes.any.isRequired
+                    })
+                ]).isRequired,
+                'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any
+                ])).isRequired,
+                'complexUnion': ___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    })
+                ]).isRequired,
+                'interfaceValue': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersecton': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersectonAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'partialIntersectionAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                }).isRequired,
+                'enum': ___PropTypes.oneOf([
+                    0,
+                    1,
+                    2
+                ]).isRequired,
+                'optionalSelfReferencing': ___PropTypes.shape({
+                    'numberProp': ___PropTypes.number.isRequired,
+                    'stringLiteralProp': ___PropTypes.oneOf([
+                        \\"hi\\"
+                    ]).isRequired,
+                    'numberLiteralProp': ___PropTypes.oneOf([
+                        1
+                    ]).isRequired,
+                    'boolLiteralProp': ___PropTypes.oneOf([
+                        false
+                    ]).isRequired,
+                    'boolProp': ___PropTypes.bool.isRequired,
+                    'arrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'optionalProp': ___PropTypes.bool,
+                    'commentedProp': ___PropTypes.string.isRequired,
+                    'union': ___PropTypes.oneOf([
+                        \\"a\\",
+                        \\"b\\",
+                        \\"c\\"
+                    ]).isRequired,
+                    'unionAlias': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'complexUnion': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'interfaceValue': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersecton': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersectonAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'partialIntersectionAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    }).isRequired,
+                    'enum': ___PropTypes.oneOf([
+                        0,
+                        1,
+                        2
+                    ]).isRequired,
+                    'optionalSelfReferencing': ___PropTypes.shape({
+                        'numberProp': ___PropTypes.any.isRequired,
+                        'stringLiteralProp': ___PropTypes.any.isRequired,
+                        'numberLiteralProp': ___PropTypes.any.isRequired,
+                        'boolLiteralProp': ___PropTypes.any.isRequired,
+                        'boolProp': ___PropTypes.any.isRequired,
+                        'arrayProp': ___PropTypes.any.isRequired,
+                        'genericArrayProp': ___PropTypes.any.isRequired,
+                        'optionalProp': ___PropTypes.any,
+                        'commentedProp': ___PropTypes.any.isRequired,
+                        'union': ___PropTypes.any.isRequired,
+                        'unionAlias': ___PropTypes.any.isRequired,
+                        'arrayOfUnion': ___PropTypes.any.isRequired,
+                        'complexUnion': ___PropTypes.any.isRequired,
+                        'interfaceValue': ___PropTypes.any.isRequired,
+                        'intersecton': ___PropTypes.any.isRequired,
+                        'intersectonAlias': ___PropTypes.any.isRequired,
+                        'partialIntersectionAlias': ___PropTypes.any.isRequired,
+                        'enum': ___PropTypes.any.isRequired,
+                        'optionalSelfReferencing': ___PropTypes.any,
+                        'css': ___PropTypes.any,
+                        'dom': ___PropTypes.any,
+                        'id': ___PropTypes.any.isRequired
+                    }),
+                    'css': ___PropTypes.shape({}),
+                    'dom': ___PropTypes.arrayOf(___PropTypes.any),
+                    'id': ___PropTypes.number.isRequired
+                }),
+                'css': ___PropTypes.shape({}),
+                'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                'id': ___PropTypes.number.isRequired
             }),
-            id: ___PropTypes.number.isRequired
+            'css': ___PropTypes.shape({}),
+            'dom': ___PropTypes.arrayOf(___PropTypes.string),
+            'id': ___PropTypes.number.isRequired
         }),
-        id: ___PropTypes.number.isRequired
+        'css': ___PropTypes.shape({}),
+        'dom': ___PropTypes.arrayOf(___PropTypes.string),
+        'id': ___PropTypes.number.isRequired
     }),
-    id: ___PropTypes.number.isRequired
+    'css': ___PropTypes.shape({}),
+    'dom': ___PropTypes.arrayOf(___PropTypes.string),
+    'id': ___PropTypes.number.isRequired
 };
 var NonExportedStatelessFunctionalTestComponent = function (p) {
     return React.createElement(AnyPropsComponent, __assign({}, p));
 };
 NonExportedStatelessFunctionalTestComponent.propTypes = {
-    numberProp: ___PropTypes.number.isRequired,
-    stringLiteralProp: ___PropTypes.oneOf([
+    'numberProp': ___PropTypes.number.isRequired,
+    'stringLiteralProp': ___PropTypes.oneOf([
         \\"hi\\"
     ]).isRequired,
-    numberLiteralProp: ___PropTypes.oneOf([
+    'numberLiteralProp': ___PropTypes.oneOf([
         1
     ]).isRequired,
-    boolLiteralProp: ___PropTypes.oneOf([
+    'boolLiteralProp': ___PropTypes.oneOf([
         false
     ]).isRequired,
-    boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.oneOf([
+    'boolProp': ___PropTypes.bool.isRequired,
+    'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'optionalProp': ___PropTypes.bool,
+    'commentedProp': ___PropTypes.string.isRequired,
+    'union': ___PropTypes.oneOf([
         \\"a\\",
         \\"b\\",
         \\"c\\"
     ]).isRequired,
-    unionAlias: ___PropTypes.oneOfType([
+    'unionAlias': ___PropTypes.oneOfType([
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.shape({
-            lastName: ___PropTypes.string.isRequired
+            'lastName': ___PropTypes.string.isRequired
         })
     ]).isRequired,
-    arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
+    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -817,16 +1261,16 @@ NonExportedStatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any,
-            lastName: ___PropTypes.any
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ])).isRequired,
-    complexUnion: ___PropTypes.oneOfType([
+    'complexUnion': ___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -844,75 +1288,65 @@ NonExportedStatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ]).isRequired,
-    interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'interfaceValue': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersecton: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersecton': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersectonAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersectonAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    partialIntersectionAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string,
-        lastName: ___PropTypes.string
+    'partialIntersectionAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string,
+        'lastName': ___PropTypes.string
     }).isRequired,
-    enum: ___PropTypes.oneOf([
+    'enum': ___PropTypes.oneOf([
         0,
         1,
         2
     ]).isRequired,
-    optionalSelfReferencing: ___PropTypes.shape({
-        numberProp: ___PropTypes.number.isRequired,
-        stringLiteralProp: ___PropTypes.oneOf([
+    'optionalSelfReferencing': ___PropTypes.shape({
+        'numberProp': ___PropTypes.number.isRequired,
+        'stringLiteralProp': ___PropTypes.oneOf([
             \\"hi\\"
         ]).isRequired,
-        numberLiteralProp: ___PropTypes.oneOf([
+        'numberLiteralProp': ___PropTypes.oneOf([
             1
         ]).isRequired,
-        boolLiteralProp: ___PropTypes.oneOf([
+        'boolLiteralProp': ___PropTypes.oneOf([
             false
         ]).isRequired,
-        boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.oneOf([
+        'boolProp': ___PropTypes.bool.isRequired,
+        'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'optionalProp': ___PropTypes.bool,
+        'commentedProp': ___PropTypes.string.isRequired,
+        'union': ___PropTypes.oneOf([
             \\"a\\",
             \\"b\\",
             \\"c\\"
         ]).isRequired,
-        unionAlias: ___PropTypes.oneOfType([
+        'unionAlias': ___PropTypes.oneOfType([
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.shape({
-                lastName: ___PropTypes.any.isRequired
+                'lastName': ___PropTypes.string.isRequired
             })
         ]).isRequired,
-        arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any
-        ])).isRequired,
-        complexUnion: ___PropTypes.oneOfType([
+        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -930,113 +1364,345 @@ NonExportedStatelessFunctionalTestComponent.propTypes = {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
+            })
+        ])).isRequired,
+        'complexUnion': ___PropTypes.oneOfType([
+            ___PropTypes.oneOf([
+                true
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
+            }),
+            ___PropTypes.oneOf([
+                \\"a\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"b\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"c\\"
+            ]),
+            ___PropTypes.oneOf([
+                5
+            ]),
+            ___PropTypes.oneOf([
+                \\"6\\"
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ]).isRequired,
-        interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'interfaceValue': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersecton: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersecton': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersectonAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersectonAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        partialIntersectionAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+        'partialIntersectionAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         }).isRequired,
-        enum: ___PropTypes.oneOf([
+        'enum': ___PropTypes.oneOf([
             0,
             1,
             2
         ]).isRequired,
-        optionalSelfReferencing: ___PropTypes.shape({
-            numberProp: ___PropTypes.number.isRequired,
-            stringLiteralProp: ___PropTypes.oneOf([
+        'optionalSelfReferencing': ___PropTypes.shape({
+            'numberProp': ___PropTypes.number.isRequired,
+            'stringLiteralProp': ___PropTypes.oneOf([
                 \\"hi\\"
             ]).isRequired,
-            numberLiteralProp: ___PropTypes.oneOf([
+            'numberLiteralProp': ___PropTypes.oneOf([
                 1
             ]).isRequired,
-            boolLiteralProp: ___PropTypes.oneOf([
+            'boolLiteralProp': ___PropTypes.oneOf([
                 false
             ]).isRequired,
-            boolProp: ___PropTypes.bool.isRequired,
-            arrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            genericArrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            optionalProp: ___PropTypes.bool,
-            commentedProp: ___PropTypes.string.isRequired,
-            union: ___PropTypes.oneOf([
+            'boolProp': ___PropTypes.bool.isRequired,
+            'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'optionalProp': ___PropTypes.bool,
+            'commentedProp': ___PropTypes.string.isRequired,
+            'union': ___PropTypes.oneOf([
                 \\"a\\",
                 \\"b\\",
                 \\"c\\"
             ]).isRequired,
-            unionAlias: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any
+            'unionAlias': ___PropTypes.oneOfType([
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.shape({
+                    'lastName': ___PropTypes.string.isRequired
+                })
             ]).isRequired,
-            arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            complexUnion: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any
+            'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any,
+                    'lastName': ___PropTypes.any
+                })
+            ])).isRequired,
+            'complexUnion': ___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                })
             ]).isRequired,
-            interfaceValue: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+            'interfaceValue': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersecton: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersecton': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersectonAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersectonAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            partialIntersectionAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+            'partialIntersectionAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             }).isRequired,
-            enum: ___PropTypes.oneOf([
+            'enum': ___PropTypes.oneOf([
                 0,
                 1,
                 2
             ]).isRequired,
-            optionalSelfReferencing: ___PropTypes.shape({
-                numberProp: ___PropTypes.any.isRequired,
-                stringLiteralProp: ___PropTypes.any.isRequired,
-                numberLiteralProp: ___PropTypes.any.isRequired,
-                boolLiteralProp: ___PropTypes.any.isRequired,
-                boolProp: ___PropTypes.any.isRequired,
-                arrayProp: ___PropTypes.any.isRequired,
-                genericArrayProp: ___PropTypes.any.isRequired,
-                optionalProp: ___PropTypes.any,
-                commentedProp: ___PropTypes.any.isRequired,
-                union: ___PropTypes.any.isRequired,
-                unionAlias: ___PropTypes.any.isRequired,
-                arrayOfUnion: ___PropTypes.any.isRequired,
-                complexUnion: ___PropTypes.any.isRequired,
-                interfaceValue: ___PropTypes.any.isRequired,
-                intersecton: ___PropTypes.any.isRequired,
-                intersectonAlias: ___PropTypes.any.isRequired,
-                partialIntersectionAlias: ___PropTypes.any.isRequired,
-                enum: ___PropTypes.any.isRequired,
-                optionalSelfReferencing: ___PropTypes.any,
-                id: ___PropTypes.any.isRequired
+            'optionalSelfReferencing': ___PropTypes.shape({
+                'numberProp': ___PropTypes.number.isRequired,
+                'stringLiteralProp': ___PropTypes.oneOf([
+                    \\"hi\\"
+                ]).isRequired,
+                'numberLiteralProp': ___PropTypes.oneOf([
+                    1
+                ]).isRequired,
+                'boolLiteralProp': ___PropTypes.oneOf([
+                    false
+                ]).isRequired,
+                'boolProp': ___PropTypes.bool.isRequired,
+                'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'optionalProp': ___PropTypes.bool,
+                'commentedProp': ___PropTypes.string.isRequired,
+                'union': ___PropTypes.oneOf([
+                    \\"a\\",
+                    \\"b\\",
+                    \\"c\\"
+                ]).isRequired,
+                'unionAlias': ___PropTypes.oneOfType([
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.shape({
+                        'lastName': ___PropTypes.any.isRequired
+                    })
+                ]).isRequired,
+                'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any
+                ])).isRequired,
+                'complexUnion': ___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    })
+                ]).isRequired,
+                'interfaceValue': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersecton': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersectonAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'partialIntersectionAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                }).isRequired,
+                'enum': ___PropTypes.oneOf([
+                    0,
+                    1,
+                    2
+                ]).isRequired,
+                'optionalSelfReferencing': ___PropTypes.shape({
+                    'numberProp': ___PropTypes.number.isRequired,
+                    'stringLiteralProp': ___PropTypes.oneOf([
+                        \\"hi\\"
+                    ]).isRequired,
+                    'numberLiteralProp': ___PropTypes.oneOf([
+                        1
+                    ]).isRequired,
+                    'boolLiteralProp': ___PropTypes.oneOf([
+                        false
+                    ]).isRequired,
+                    'boolProp': ___PropTypes.bool.isRequired,
+                    'arrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'optionalProp': ___PropTypes.bool,
+                    'commentedProp': ___PropTypes.string.isRequired,
+                    'union': ___PropTypes.oneOf([
+                        \\"a\\",
+                        \\"b\\",
+                        \\"c\\"
+                    ]).isRequired,
+                    'unionAlias': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'complexUnion': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'interfaceValue': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersecton': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersectonAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'partialIntersectionAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    }).isRequired,
+                    'enum': ___PropTypes.oneOf([
+                        0,
+                        1,
+                        2
+                    ]).isRequired,
+                    'optionalSelfReferencing': ___PropTypes.shape({
+                        'numberProp': ___PropTypes.any.isRequired,
+                        'stringLiteralProp': ___PropTypes.any.isRequired,
+                        'numberLiteralProp': ___PropTypes.any.isRequired,
+                        'boolLiteralProp': ___PropTypes.any.isRequired,
+                        'boolProp': ___PropTypes.any.isRequired,
+                        'arrayProp': ___PropTypes.any.isRequired,
+                        'genericArrayProp': ___PropTypes.any.isRequired,
+                        'optionalProp': ___PropTypes.any,
+                        'commentedProp': ___PropTypes.any.isRequired,
+                        'union': ___PropTypes.any.isRequired,
+                        'unionAlias': ___PropTypes.any.isRequired,
+                        'arrayOfUnion': ___PropTypes.any.isRequired,
+                        'complexUnion': ___PropTypes.any.isRequired,
+                        'interfaceValue': ___PropTypes.any.isRequired,
+                        'intersecton': ___PropTypes.any.isRequired,
+                        'intersectonAlias': ___PropTypes.any.isRequired,
+                        'partialIntersectionAlias': ___PropTypes.any.isRequired,
+                        'enum': ___PropTypes.any.isRequired,
+                        'optionalSelfReferencing': ___PropTypes.any,
+                        'css': ___PropTypes.any,
+                        'dom': ___PropTypes.any,
+                        'id': ___PropTypes.any.isRequired
+                    }),
+                    'css': ___PropTypes.shape({}),
+                    'dom': ___PropTypes.arrayOf(___PropTypes.any),
+                    'id': ___PropTypes.number.isRequired
+                }),
+                'css': ___PropTypes.shape({}),
+                'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                'id': ___PropTypes.number.isRequired
             }),
-            id: ___PropTypes.number.isRequired
+            'css': ___PropTypes.shape({}),
+            'dom': ___PropTypes.arrayOf(___PropTypes.string),
+            'id': ___PropTypes.number.isRequired
         }),
-        id: ___PropTypes.number.isRequired
+        'css': ___PropTypes.shape({}),
+        'dom': ___PropTypes.arrayOf(___PropTypes.string),
+        'id': ___PropTypes.number.isRequired
     }),
-    id: ___PropTypes.number.isRequired
+    'css': ___PropTypes.shape({}),
+    'dom': ___PropTypes.arrayOf(___PropTypes.string),
+    'id': ___PropTypes.number.isRequired
 };
 exports.InferrableStatelessFunctionalTestComponent = function (p) {
     return React.createElement(exports.StatelessFunctionalTestComponent, __assign({}, p));
@@ -1054,40 +1720,40 @@ import * as React from 'react';
 export class TestComponent extends React.Component {
 }
 TestComponent.propTypes = {
-    numberProp: ___PropTypes.number.isRequired,
-    stringLiteralProp: ___PropTypes.oneOf([
+    'numberProp': ___PropTypes.number.isRequired,
+    'stringLiteralProp': ___PropTypes.oneOf([
         \\"hi\\"
     ]).isRequired,
-    numberLiteralProp: ___PropTypes.oneOf([
+    'numberLiteralProp': ___PropTypes.oneOf([
         1
     ]).isRequired,
-    boolLiteralProp: ___PropTypes.oneOf([
+    'boolLiteralProp': ___PropTypes.oneOf([
         false
     ]).isRequired,
-    boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.oneOf([
+    'boolProp': ___PropTypes.bool.isRequired,
+    'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'optionalProp': ___PropTypes.bool,
+    'commentedProp': ___PropTypes.string.isRequired,
+    'union': ___PropTypes.oneOf([
         \\"a\\",
         \\"b\\",
         \\"c\\"
     ]).isRequired,
-    unionAlias: ___PropTypes.oneOfType([
+    'unionAlias': ___PropTypes.oneOfType([
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.shape({
-            lastName: ___PropTypes.string.isRequired
+            'lastName': ___PropTypes.string.isRequired
         })
     ]).isRequired,
-    arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
+    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -1105,16 +1771,16 @@ TestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any,
-            lastName: ___PropTypes.any
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ])).isRequired,
-    complexUnion: ___PropTypes.oneOfType([
+    'complexUnion': ___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -1132,75 +1798,65 @@ TestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ]).isRequired,
-    interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'interfaceValue': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersecton: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersecton': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersectonAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersectonAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    partialIntersectionAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string,
-        lastName: ___PropTypes.string
+    'partialIntersectionAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string,
+        'lastName': ___PropTypes.string
     }).isRequired,
-    enum: ___PropTypes.oneOf([
+    'enum': ___PropTypes.oneOf([
         0,
         1,
         2
     ]).isRequired,
-    optionalSelfReferencing: ___PropTypes.shape({
-        numberProp: ___PropTypes.number.isRequired,
-        stringLiteralProp: ___PropTypes.oneOf([
+    'optionalSelfReferencing': ___PropTypes.shape({
+        'numberProp': ___PropTypes.number.isRequired,
+        'stringLiteralProp': ___PropTypes.oneOf([
             \\"hi\\"
         ]).isRequired,
-        numberLiteralProp: ___PropTypes.oneOf([
+        'numberLiteralProp': ___PropTypes.oneOf([
             1
         ]).isRequired,
-        boolLiteralProp: ___PropTypes.oneOf([
+        'boolLiteralProp': ___PropTypes.oneOf([
             false
         ]).isRequired,
-        boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.oneOf([
+        'boolProp': ___PropTypes.bool.isRequired,
+        'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'optionalProp': ___PropTypes.bool,
+        'commentedProp': ___PropTypes.string.isRequired,
+        'union': ___PropTypes.oneOf([
             \\"a\\",
             \\"b\\",
             \\"c\\"
         ]).isRequired,
-        unionAlias: ___PropTypes.oneOfType([
+        'unionAlias': ___PropTypes.oneOfType([
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.shape({
-                lastName: ___PropTypes.any.isRequired
+                'lastName': ___PropTypes.string.isRequired
             })
         ]).isRequired,
-        arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any
-        ])).isRequired,
-        complexUnion: ___PropTypes.oneOfType([
+        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -1218,113 +1874,345 @@ TestComponent.propTypes = {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
+            })
+        ])).isRequired,
+        'complexUnion': ___PropTypes.oneOfType([
+            ___PropTypes.oneOf([
+                true
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
+            }),
+            ___PropTypes.oneOf([
+                \\"a\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"b\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"c\\"
+            ]),
+            ___PropTypes.oneOf([
+                5
+            ]),
+            ___PropTypes.oneOf([
+                \\"6\\"
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ]).isRequired,
-        interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'interfaceValue': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersecton: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersecton': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersectonAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersectonAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        partialIntersectionAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+        'partialIntersectionAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         }).isRequired,
-        enum: ___PropTypes.oneOf([
+        'enum': ___PropTypes.oneOf([
             0,
             1,
             2
         ]).isRequired,
-        optionalSelfReferencing: ___PropTypes.shape({
-            numberProp: ___PropTypes.number.isRequired,
-            stringLiteralProp: ___PropTypes.oneOf([
+        'optionalSelfReferencing': ___PropTypes.shape({
+            'numberProp': ___PropTypes.number.isRequired,
+            'stringLiteralProp': ___PropTypes.oneOf([
                 \\"hi\\"
             ]).isRequired,
-            numberLiteralProp: ___PropTypes.oneOf([
+            'numberLiteralProp': ___PropTypes.oneOf([
                 1
             ]).isRequired,
-            boolLiteralProp: ___PropTypes.oneOf([
+            'boolLiteralProp': ___PropTypes.oneOf([
                 false
             ]).isRequired,
-            boolProp: ___PropTypes.bool.isRequired,
-            arrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            genericArrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            optionalProp: ___PropTypes.bool,
-            commentedProp: ___PropTypes.string.isRequired,
-            union: ___PropTypes.oneOf([
+            'boolProp': ___PropTypes.bool.isRequired,
+            'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'optionalProp': ___PropTypes.bool,
+            'commentedProp': ___PropTypes.string.isRequired,
+            'union': ___PropTypes.oneOf([
                 \\"a\\",
                 \\"b\\",
                 \\"c\\"
             ]).isRequired,
-            unionAlias: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any
+            'unionAlias': ___PropTypes.oneOfType([
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.shape({
+                    'lastName': ___PropTypes.string.isRequired
+                })
             ]).isRequired,
-            arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            complexUnion: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any
+            'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any,
+                    'lastName': ___PropTypes.any
+                })
+            ])).isRequired,
+            'complexUnion': ___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                })
             ]).isRequired,
-            interfaceValue: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+            'interfaceValue': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersecton: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersecton': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersectonAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersectonAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            partialIntersectionAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+            'partialIntersectionAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             }).isRequired,
-            enum: ___PropTypes.oneOf([
+            'enum': ___PropTypes.oneOf([
                 0,
                 1,
                 2
             ]).isRequired,
-            optionalSelfReferencing: ___PropTypes.shape({
-                numberProp: ___PropTypes.any.isRequired,
-                stringLiteralProp: ___PropTypes.any.isRequired,
-                numberLiteralProp: ___PropTypes.any.isRequired,
-                boolLiteralProp: ___PropTypes.any.isRequired,
-                boolProp: ___PropTypes.any.isRequired,
-                arrayProp: ___PropTypes.any.isRequired,
-                genericArrayProp: ___PropTypes.any.isRequired,
-                optionalProp: ___PropTypes.any,
-                commentedProp: ___PropTypes.any.isRequired,
-                union: ___PropTypes.any.isRequired,
-                unionAlias: ___PropTypes.any.isRequired,
-                arrayOfUnion: ___PropTypes.any.isRequired,
-                complexUnion: ___PropTypes.any.isRequired,
-                interfaceValue: ___PropTypes.any.isRequired,
-                intersecton: ___PropTypes.any.isRequired,
-                intersectonAlias: ___PropTypes.any.isRequired,
-                partialIntersectionAlias: ___PropTypes.any.isRequired,
-                enum: ___PropTypes.any.isRequired,
-                optionalSelfReferencing: ___PropTypes.any,
-                id: ___PropTypes.any.isRequired
+            'optionalSelfReferencing': ___PropTypes.shape({
+                'numberProp': ___PropTypes.number.isRequired,
+                'stringLiteralProp': ___PropTypes.oneOf([
+                    \\"hi\\"
+                ]).isRequired,
+                'numberLiteralProp': ___PropTypes.oneOf([
+                    1
+                ]).isRequired,
+                'boolLiteralProp': ___PropTypes.oneOf([
+                    false
+                ]).isRequired,
+                'boolProp': ___PropTypes.bool.isRequired,
+                'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'optionalProp': ___PropTypes.bool,
+                'commentedProp': ___PropTypes.string.isRequired,
+                'union': ___PropTypes.oneOf([
+                    \\"a\\",
+                    \\"b\\",
+                    \\"c\\"
+                ]).isRequired,
+                'unionAlias': ___PropTypes.oneOfType([
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.shape({
+                        'lastName': ___PropTypes.any.isRequired
+                    })
+                ]).isRequired,
+                'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any
+                ])).isRequired,
+                'complexUnion': ___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    })
+                ]).isRequired,
+                'interfaceValue': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersecton': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersectonAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'partialIntersectionAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                }).isRequired,
+                'enum': ___PropTypes.oneOf([
+                    0,
+                    1,
+                    2
+                ]).isRequired,
+                'optionalSelfReferencing': ___PropTypes.shape({
+                    'numberProp': ___PropTypes.number.isRequired,
+                    'stringLiteralProp': ___PropTypes.oneOf([
+                        \\"hi\\"
+                    ]).isRequired,
+                    'numberLiteralProp': ___PropTypes.oneOf([
+                        1
+                    ]).isRequired,
+                    'boolLiteralProp': ___PropTypes.oneOf([
+                        false
+                    ]).isRequired,
+                    'boolProp': ___PropTypes.bool.isRequired,
+                    'arrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'optionalProp': ___PropTypes.bool,
+                    'commentedProp': ___PropTypes.string.isRequired,
+                    'union': ___PropTypes.oneOf([
+                        \\"a\\",
+                        \\"b\\",
+                        \\"c\\"
+                    ]).isRequired,
+                    'unionAlias': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'complexUnion': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'interfaceValue': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersecton': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersectonAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'partialIntersectionAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    }).isRequired,
+                    'enum': ___PropTypes.oneOf([
+                        0,
+                        1,
+                        2
+                    ]).isRequired,
+                    'optionalSelfReferencing': ___PropTypes.shape({
+                        'numberProp': ___PropTypes.any.isRequired,
+                        'stringLiteralProp': ___PropTypes.any.isRequired,
+                        'numberLiteralProp': ___PropTypes.any.isRequired,
+                        'boolLiteralProp': ___PropTypes.any.isRequired,
+                        'boolProp': ___PropTypes.any.isRequired,
+                        'arrayProp': ___PropTypes.any.isRequired,
+                        'genericArrayProp': ___PropTypes.any.isRequired,
+                        'optionalProp': ___PropTypes.any,
+                        'commentedProp': ___PropTypes.any.isRequired,
+                        'union': ___PropTypes.any.isRequired,
+                        'unionAlias': ___PropTypes.any.isRequired,
+                        'arrayOfUnion': ___PropTypes.any.isRequired,
+                        'complexUnion': ___PropTypes.any.isRequired,
+                        'interfaceValue': ___PropTypes.any.isRequired,
+                        'intersecton': ___PropTypes.any.isRequired,
+                        'intersectonAlias': ___PropTypes.any.isRequired,
+                        'partialIntersectionAlias': ___PropTypes.any.isRequired,
+                        'enum': ___PropTypes.any.isRequired,
+                        'optionalSelfReferencing': ___PropTypes.any,
+                        'css': ___PropTypes.any,
+                        'dom': ___PropTypes.any,
+                        'id': ___PropTypes.any.isRequired
+                    }),
+                    'css': ___PropTypes.shape({}),
+                    'dom': ___PropTypes.arrayOf(___PropTypes.any),
+                    'id': ___PropTypes.number.isRequired
+                }),
+                'css': ___PropTypes.shape({}),
+                'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                'id': ___PropTypes.number.isRequired
             }),
-            id: ___PropTypes.number.isRequired
+            'css': ___PropTypes.shape({}),
+            'dom': ___PropTypes.arrayOf(___PropTypes.string),
+            'id': ___PropTypes.number.isRequired
         }),
-        id: ___PropTypes.number.isRequired
+        'css': ___PropTypes.shape({}),
+        'dom': ___PropTypes.arrayOf(___PropTypes.string),
+        'id': ___PropTypes.number.isRequired
     }),
-    id: ___PropTypes.number.isRequired
+    'css': ___PropTypes.shape({}),
+    'dom': ___PropTypes.arrayOf(___PropTypes.string),
+    'id': ___PropTypes.number.isRequired
 };
 export class AlreadyHasAStaticPropTypes extends React.Component {
 }
@@ -1334,111 +2222,111 @@ export class NotAComponentClass {
 export class GenericPropsTestComponent extends React.Component {
 }
 GenericPropsTestComponent.propTypes = {
-    propOfT: ___PropTypes.any.isRequired,
-    propOfU: ___PropTypes.any.isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-    propOfTAndU: ___PropTypes.any.isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.any).isRequired
+    'propOfT': ___PropTypes.any.isRequired,
+    'propOfU': ___PropTypes.any.isRequired,
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+    'propOfTAndU': ___PropTypes.any.isRequired,
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.any).isRequired
 };
 export class GenericPropsTestComponent2 extends React.Component {
 }
 GenericPropsTestComponent2.propTypes = {
-    propOfT: ___PropTypes.any.isRequired,
-    propOfU: ___PropTypes.any.isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-    propOfTAndU: ___PropTypes.shape({}).isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({})).isRequired
+    'propOfT': ___PropTypes.any.isRequired,
+    'propOfU': ___PropTypes.any.isRequired,
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+    'propOfTAndU': ___PropTypes.shape({}).isRequired,
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({})).isRequired
 };
 export class GenericPropsTestComponent3 extends React.Component {
 }
 GenericPropsTestComponent3.propTypes = {
-    propOfT: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfT': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfU: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfU': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired,
-    propOfTAndU: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfTAndU': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired
 };
 export class GenericPropsTestComponent4 extends React.Component {
 }
 GenericPropsTestComponent4.propTypes = {
-    propOfT: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfT': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfU: ___PropTypes.shape({
-        lastName: ___PropTypes.string.isRequired
+    'propOfU': ___PropTypes.shape({
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired,
-    propOfTAndU: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'propOfTAndU': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     })).isRequired
 };
 export class GenericPropsTestComponent5 extends React.Component {
 }
 GenericPropsTestComponent5.propTypes = {
-    propOfT: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfT': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfU: ___PropTypes.any.isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfU': ___PropTypes.any.isRequired,
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired,
-    propOfTAndU: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfTAndU': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired
 };
 export class GenericPropsTestComponent6 extends GenericPropsTestComponent5 {
 }
 GenericPropsTestComponent6.propTypes = {
-    propOfT: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfT': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfU: ___PropTypes.any.isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfU': ___PropTypes.any.isRequired,
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired,
-    propOfTAndU: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfTAndU': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired
 };
 // BUG: U is not being combined here:
 export class GenericPropsTestComponent7 extends GenericPropsTestComponent6 {
 }
 GenericPropsTestComponent7.propTypes = {
-    propOfT: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfT': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfU: ___PropTypes.any.isRequired,
-    propOfArrayOfT: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfU': ___PropTypes.any.isRequired,
+    'propOfArrayOfT': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired,
-    propOfTAndU: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfTAndU': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    propOfArrayOfTAndU: ___PropTypes.arrayOf(___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'propOfArrayOfTAndU': ___PropTypes.arrayOf(___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     })).isRequired
 };
 export class AnyPropsComponent extends React.Component {
@@ -1448,40 +2336,40 @@ export const StatelessFunctionalTestComponent = (p) => {
     return <AnyPropsComponent {...p}/>;
 };
 StatelessFunctionalTestComponent.propTypes = {
-    numberProp: ___PropTypes.number.isRequired,
-    stringLiteralProp: ___PropTypes.oneOf([
+    'numberProp': ___PropTypes.number.isRequired,
+    'stringLiteralProp': ___PropTypes.oneOf([
         \\"hi\\"
     ]).isRequired,
-    numberLiteralProp: ___PropTypes.oneOf([
+    'numberLiteralProp': ___PropTypes.oneOf([
         1
     ]).isRequired,
-    boolLiteralProp: ___PropTypes.oneOf([
+    'boolLiteralProp': ___PropTypes.oneOf([
         false
     ]).isRequired,
-    boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.oneOf([
+    'boolProp': ___PropTypes.bool.isRequired,
+    'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'optionalProp': ___PropTypes.bool,
+    'commentedProp': ___PropTypes.string.isRequired,
+    'union': ___PropTypes.oneOf([
         \\"a\\",
         \\"b\\",
         \\"c\\"
     ]).isRequired,
-    unionAlias: ___PropTypes.oneOfType([
+    'unionAlias': ___PropTypes.oneOfType([
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.shape({
-            lastName: ___PropTypes.string.isRequired
+            'lastName': ___PropTypes.string.isRequired
         })
     ]).isRequired,
-    arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
+    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -1499,16 +2387,16 @@ StatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any,
-            lastName: ___PropTypes.any
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ])).isRequired,
-    complexUnion: ___PropTypes.oneOfType([
+    'complexUnion': ___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -1526,75 +2414,65 @@ StatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ]).isRequired,
-    interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'interfaceValue': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersecton: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersecton': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersectonAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersectonAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    partialIntersectionAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string,
-        lastName: ___PropTypes.string
+    'partialIntersectionAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string,
+        'lastName': ___PropTypes.string
     }).isRequired,
-    enum: ___PropTypes.oneOf([
+    'enum': ___PropTypes.oneOf([
         0,
         1,
         2
     ]).isRequired,
-    optionalSelfReferencing: ___PropTypes.shape({
-        numberProp: ___PropTypes.number.isRequired,
-        stringLiteralProp: ___PropTypes.oneOf([
+    'optionalSelfReferencing': ___PropTypes.shape({
+        'numberProp': ___PropTypes.number.isRequired,
+        'stringLiteralProp': ___PropTypes.oneOf([
             \\"hi\\"
         ]).isRequired,
-        numberLiteralProp: ___PropTypes.oneOf([
+        'numberLiteralProp': ___PropTypes.oneOf([
             1
         ]).isRequired,
-        boolLiteralProp: ___PropTypes.oneOf([
+        'boolLiteralProp': ___PropTypes.oneOf([
             false
         ]).isRequired,
-        boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.oneOf([
+        'boolProp': ___PropTypes.bool.isRequired,
+        'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'optionalProp': ___PropTypes.bool,
+        'commentedProp': ___PropTypes.string.isRequired,
+        'union': ___PropTypes.oneOf([
             \\"a\\",
             \\"b\\",
             \\"c\\"
         ]).isRequired,
-        unionAlias: ___PropTypes.oneOfType([
+        'unionAlias': ___PropTypes.oneOfType([
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.shape({
-                lastName: ___PropTypes.any.isRequired
+                'lastName': ___PropTypes.string.isRequired
             })
         ]).isRequired,
-        arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any
-        ])).isRequired,
-        complexUnion: ___PropTypes.oneOfType([
+        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -1612,152 +2490,384 @@ StatelessFunctionalTestComponent.propTypes = {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
+            })
+        ])).isRequired,
+        'complexUnion': ___PropTypes.oneOfType([
+            ___PropTypes.oneOf([
+                true
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
+            }),
+            ___PropTypes.oneOf([
+                \\"a\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"b\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"c\\"
+            ]),
+            ___PropTypes.oneOf([
+                5
+            ]),
+            ___PropTypes.oneOf([
+                \\"6\\"
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ]).isRequired,
-        interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'interfaceValue': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersecton: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersecton': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersectonAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersectonAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        partialIntersectionAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+        'partialIntersectionAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         }).isRequired,
-        enum: ___PropTypes.oneOf([
+        'enum': ___PropTypes.oneOf([
             0,
             1,
             2
         ]).isRequired,
-        optionalSelfReferencing: ___PropTypes.shape({
-            numberProp: ___PropTypes.number.isRequired,
-            stringLiteralProp: ___PropTypes.oneOf([
+        'optionalSelfReferencing': ___PropTypes.shape({
+            'numberProp': ___PropTypes.number.isRequired,
+            'stringLiteralProp': ___PropTypes.oneOf([
                 \\"hi\\"
             ]).isRequired,
-            numberLiteralProp: ___PropTypes.oneOf([
+            'numberLiteralProp': ___PropTypes.oneOf([
                 1
             ]).isRequired,
-            boolLiteralProp: ___PropTypes.oneOf([
+            'boolLiteralProp': ___PropTypes.oneOf([
                 false
             ]).isRequired,
-            boolProp: ___PropTypes.bool.isRequired,
-            arrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            genericArrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            optionalProp: ___PropTypes.bool,
-            commentedProp: ___PropTypes.string.isRequired,
-            union: ___PropTypes.oneOf([
+            'boolProp': ___PropTypes.bool.isRequired,
+            'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'optionalProp': ___PropTypes.bool,
+            'commentedProp': ___PropTypes.string.isRequired,
+            'union': ___PropTypes.oneOf([
                 \\"a\\",
                 \\"b\\",
                 \\"c\\"
             ]).isRequired,
-            unionAlias: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any
+            'unionAlias': ___PropTypes.oneOfType([
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.shape({
+                    'lastName': ___PropTypes.string.isRequired
+                })
             ]).isRequired,
-            arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            complexUnion: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any
+            'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any,
+                    'lastName': ___PropTypes.any
+                })
+            ])).isRequired,
+            'complexUnion': ___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                })
             ]).isRequired,
-            interfaceValue: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+            'interfaceValue': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersecton: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersecton': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersectonAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersectonAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            partialIntersectionAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+            'partialIntersectionAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             }).isRequired,
-            enum: ___PropTypes.oneOf([
+            'enum': ___PropTypes.oneOf([
                 0,
                 1,
                 2
             ]).isRequired,
-            optionalSelfReferencing: ___PropTypes.shape({
-                numberProp: ___PropTypes.any.isRequired,
-                stringLiteralProp: ___PropTypes.any.isRequired,
-                numberLiteralProp: ___PropTypes.any.isRequired,
-                boolLiteralProp: ___PropTypes.any.isRequired,
-                boolProp: ___PropTypes.any.isRequired,
-                arrayProp: ___PropTypes.any.isRequired,
-                genericArrayProp: ___PropTypes.any.isRequired,
-                optionalProp: ___PropTypes.any,
-                commentedProp: ___PropTypes.any.isRequired,
-                union: ___PropTypes.any.isRequired,
-                unionAlias: ___PropTypes.any.isRequired,
-                arrayOfUnion: ___PropTypes.any.isRequired,
-                complexUnion: ___PropTypes.any.isRequired,
-                interfaceValue: ___PropTypes.any.isRequired,
-                intersecton: ___PropTypes.any.isRequired,
-                intersectonAlias: ___PropTypes.any.isRequired,
-                partialIntersectionAlias: ___PropTypes.any.isRequired,
-                enum: ___PropTypes.any.isRequired,
-                optionalSelfReferencing: ___PropTypes.any,
-                id: ___PropTypes.any.isRequired
+            'optionalSelfReferencing': ___PropTypes.shape({
+                'numberProp': ___PropTypes.number.isRequired,
+                'stringLiteralProp': ___PropTypes.oneOf([
+                    \\"hi\\"
+                ]).isRequired,
+                'numberLiteralProp': ___PropTypes.oneOf([
+                    1
+                ]).isRequired,
+                'boolLiteralProp': ___PropTypes.oneOf([
+                    false
+                ]).isRequired,
+                'boolProp': ___PropTypes.bool.isRequired,
+                'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'optionalProp': ___PropTypes.bool,
+                'commentedProp': ___PropTypes.string.isRequired,
+                'union': ___PropTypes.oneOf([
+                    \\"a\\",
+                    \\"b\\",
+                    \\"c\\"
+                ]).isRequired,
+                'unionAlias': ___PropTypes.oneOfType([
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.shape({
+                        'lastName': ___PropTypes.any.isRequired
+                    })
+                ]).isRequired,
+                'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any
+                ])).isRequired,
+                'complexUnion': ___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    })
+                ]).isRequired,
+                'interfaceValue': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersecton': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersectonAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'partialIntersectionAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                }).isRequired,
+                'enum': ___PropTypes.oneOf([
+                    0,
+                    1,
+                    2
+                ]).isRequired,
+                'optionalSelfReferencing': ___PropTypes.shape({
+                    'numberProp': ___PropTypes.number.isRequired,
+                    'stringLiteralProp': ___PropTypes.oneOf([
+                        \\"hi\\"
+                    ]).isRequired,
+                    'numberLiteralProp': ___PropTypes.oneOf([
+                        1
+                    ]).isRequired,
+                    'boolLiteralProp': ___PropTypes.oneOf([
+                        false
+                    ]).isRequired,
+                    'boolProp': ___PropTypes.bool.isRequired,
+                    'arrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'optionalProp': ___PropTypes.bool,
+                    'commentedProp': ___PropTypes.string.isRequired,
+                    'union': ___PropTypes.oneOf([
+                        \\"a\\",
+                        \\"b\\",
+                        \\"c\\"
+                    ]).isRequired,
+                    'unionAlias': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'complexUnion': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'interfaceValue': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersecton': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersectonAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'partialIntersectionAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    }).isRequired,
+                    'enum': ___PropTypes.oneOf([
+                        0,
+                        1,
+                        2
+                    ]).isRequired,
+                    'optionalSelfReferencing': ___PropTypes.shape({
+                        'numberProp': ___PropTypes.any.isRequired,
+                        'stringLiteralProp': ___PropTypes.any.isRequired,
+                        'numberLiteralProp': ___PropTypes.any.isRequired,
+                        'boolLiteralProp': ___PropTypes.any.isRequired,
+                        'boolProp': ___PropTypes.any.isRequired,
+                        'arrayProp': ___PropTypes.any.isRequired,
+                        'genericArrayProp': ___PropTypes.any.isRequired,
+                        'optionalProp': ___PropTypes.any,
+                        'commentedProp': ___PropTypes.any.isRequired,
+                        'union': ___PropTypes.any.isRequired,
+                        'unionAlias': ___PropTypes.any.isRequired,
+                        'arrayOfUnion': ___PropTypes.any.isRequired,
+                        'complexUnion': ___PropTypes.any.isRequired,
+                        'interfaceValue': ___PropTypes.any.isRequired,
+                        'intersecton': ___PropTypes.any.isRequired,
+                        'intersectonAlias': ___PropTypes.any.isRequired,
+                        'partialIntersectionAlias': ___PropTypes.any.isRequired,
+                        'enum': ___PropTypes.any.isRequired,
+                        'optionalSelfReferencing': ___PropTypes.any,
+                        'css': ___PropTypes.any,
+                        'dom': ___PropTypes.any,
+                        'id': ___PropTypes.any.isRequired
+                    }),
+                    'css': ___PropTypes.shape({}),
+                    'dom': ___PropTypes.arrayOf(___PropTypes.any),
+                    'id': ___PropTypes.number.isRequired
+                }),
+                'css': ___PropTypes.shape({}),
+                'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                'id': ___PropTypes.number.isRequired
             }),
-            id: ___PropTypes.number.isRequired
+            'css': ___PropTypes.shape({}),
+            'dom': ___PropTypes.arrayOf(___PropTypes.string),
+            'id': ___PropTypes.number.isRequired
         }),
-        id: ___PropTypes.number.isRequired
+        'css': ___PropTypes.shape({}),
+        'dom': ___PropTypes.arrayOf(___PropTypes.string),
+        'id': ___PropTypes.number.isRequired
     }),
-    id: ___PropTypes.number.isRequired
+    'css': ___PropTypes.shape({}),
+    'dom': ___PropTypes.arrayOf(___PropTypes.string),
+    'id': ___PropTypes.number.isRequired
 };
 const NonExportedStatelessFunctionalTestComponent = (p) => {
     return <AnyPropsComponent {...p}/>;
 };
 NonExportedStatelessFunctionalTestComponent.propTypes = {
-    numberProp: ___PropTypes.number.isRequired,
-    stringLiteralProp: ___PropTypes.oneOf([
+    'numberProp': ___PropTypes.number.isRequired,
+    'stringLiteralProp': ___PropTypes.oneOf([
         \\"hi\\"
     ]).isRequired,
-    numberLiteralProp: ___PropTypes.oneOf([
+    'numberLiteralProp': ___PropTypes.oneOf([
         1
     ]).isRequired,
-    boolLiteralProp: ___PropTypes.oneOf([
+    'boolLiteralProp': ___PropTypes.oneOf([
         false
     ]).isRequired,
-    boolProp: ___PropTypes.bool.isRequired,
-    arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-    optionalProp: ___PropTypes.bool,
-    commentedProp: ___PropTypes.string.isRequired,
-    union: ___PropTypes.oneOf([
+    'boolProp': ___PropTypes.bool.isRequired,
+    'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+    'optionalProp': ___PropTypes.bool,
+    'commentedProp': ___PropTypes.string.isRequired,
+    'union': ___PropTypes.oneOf([
         \\"a\\",
         \\"b\\",
         \\"c\\"
     ]).isRequired,
-    unionAlias: ___PropTypes.oneOfType([
+    'unionAlias': ___PropTypes.oneOfType([
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.shape({
-            lastName: ___PropTypes.string.isRequired
+            'lastName': ___PropTypes.string.isRequired
         })
     ]).isRequired,
-    arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
+    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -1775,16 +2885,16 @@ NonExportedStatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.any,
-            lastName: ___PropTypes.any
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ])).isRequired,
-    complexUnion: ___PropTypes.oneOfType([
+    'complexUnion': ___PropTypes.oneOfType([
         ___PropTypes.oneOf([
             true
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+            'firstName': ___PropTypes.string.isRequired
         }),
         ___PropTypes.oneOf([
             \\"a\\"
@@ -1802,75 +2912,65 @@ NonExportedStatelessFunctionalTestComponent.propTypes = {
             \\"6\\"
         ]),
         ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         })
     ]).isRequired,
-    interfaceValue: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired
+    'interfaceValue': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersecton: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersecton': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    intersectonAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string.isRequired,
-        lastName: ___PropTypes.string.isRequired
+    'intersectonAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string.isRequired,
+        'lastName': ___PropTypes.string.isRequired
     }).isRequired,
-    partialIntersectionAlias: ___PropTypes.shape({
-        firstName: ___PropTypes.string,
-        lastName: ___PropTypes.string
+    'partialIntersectionAlias': ___PropTypes.shape({
+        'firstName': ___PropTypes.string,
+        'lastName': ___PropTypes.string
     }).isRequired,
-    enum: ___PropTypes.oneOf([
+    'enum': ___PropTypes.oneOf([
         0,
         1,
         2
     ]).isRequired,
-    optionalSelfReferencing: ___PropTypes.shape({
-        numberProp: ___PropTypes.number.isRequired,
-        stringLiteralProp: ___PropTypes.oneOf([
+    'optionalSelfReferencing': ___PropTypes.shape({
+        'numberProp': ___PropTypes.number.isRequired,
+        'stringLiteralProp': ___PropTypes.oneOf([
             \\"hi\\"
         ]).isRequired,
-        numberLiteralProp: ___PropTypes.oneOf([
+        'numberLiteralProp': ___PropTypes.oneOf([
             1
         ]).isRequired,
-        boolLiteralProp: ___PropTypes.oneOf([
+        'boolLiteralProp': ___PropTypes.oneOf([
             false
         ]).isRequired,
-        boolProp: ___PropTypes.bool.isRequired,
-        arrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        genericArrayProp: ___PropTypes.arrayOf(___PropTypes.number).isRequired,
-        optionalProp: ___PropTypes.bool,
-        commentedProp: ___PropTypes.string.isRequired,
-        union: ___PropTypes.oneOf([
+        'boolProp': ___PropTypes.bool.isRequired,
+        'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+        'optionalProp': ___PropTypes.bool,
+        'commentedProp': ___PropTypes.string.isRequired,
+        'union': ___PropTypes.oneOf([
             \\"a\\",
             \\"b\\",
             \\"c\\"
         ]).isRequired,
-        unionAlias: ___PropTypes.oneOfType([
+        'unionAlias': ___PropTypes.oneOfType([
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.shape({
-                lastName: ___PropTypes.any.isRequired
+                'lastName': ___PropTypes.string.isRequired
             })
         ]).isRequired,
-        arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.oneOfType([
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any,
-            ___PropTypes.any
-        ])).isRequired,
-        complexUnion: ___PropTypes.oneOfType([
+        'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
             ___PropTypes.oneOf([
                 true
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+                'firstName': ___PropTypes.string.isRequired
             }),
             ___PropTypes.oneOf([
                 \\"a\\"
@@ -1888,113 +2988,345 @@ NonExportedStatelessFunctionalTestComponent.propTypes = {
                 \\"6\\"
             ]),
             ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
+            })
+        ])).isRequired,
+        'complexUnion': ___PropTypes.oneOfType([
+            ___PropTypes.oneOf([
+                true
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
+            }),
+            ___PropTypes.oneOf([
+                \\"a\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"b\\"
+            ]),
+            ___PropTypes.oneOf([
+                \\"c\\"
+            ]),
+            ___PropTypes.oneOf([
+                5
+            ]),
+            ___PropTypes.oneOf([
+                \\"6\\"
+            ]),
+            ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             })
         ]).isRequired,
-        interfaceValue: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired
+        'interfaceValue': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersecton: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersecton': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        intersectonAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string.isRequired,
-            lastName: ___PropTypes.string.isRequired
+        'intersectonAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string.isRequired,
+            'lastName': ___PropTypes.string.isRequired
         }).isRequired,
-        partialIntersectionAlias: ___PropTypes.shape({
-            firstName: ___PropTypes.string,
-            lastName: ___PropTypes.string
+        'partialIntersectionAlias': ___PropTypes.shape({
+            'firstName': ___PropTypes.string,
+            'lastName': ___PropTypes.string
         }).isRequired,
-        enum: ___PropTypes.oneOf([
+        'enum': ___PropTypes.oneOf([
             0,
             1,
             2
         ]).isRequired,
-        optionalSelfReferencing: ___PropTypes.shape({
-            numberProp: ___PropTypes.number.isRequired,
-            stringLiteralProp: ___PropTypes.oneOf([
+        'optionalSelfReferencing': ___PropTypes.shape({
+            'numberProp': ___PropTypes.number.isRequired,
+            'stringLiteralProp': ___PropTypes.oneOf([
                 \\"hi\\"
             ]).isRequired,
-            numberLiteralProp: ___PropTypes.oneOf([
+            'numberLiteralProp': ___PropTypes.oneOf([
                 1
             ]).isRequired,
-            boolLiteralProp: ___PropTypes.oneOf([
+            'boolLiteralProp': ___PropTypes.oneOf([
                 false
             ]).isRequired,
-            boolProp: ___PropTypes.bool.isRequired,
-            arrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            genericArrayProp: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            optionalProp: ___PropTypes.bool,
-            commentedProp: ___PropTypes.string.isRequired,
-            union: ___PropTypes.oneOf([
+            'boolProp': ___PropTypes.bool.isRequired,
+            'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+            'optionalProp': ___PropTypes.bool,
+            'commentedProp': ___PropTypes.string.isRequired,
+            'union': ___PropTypes.oneOf([
                 \\"a\\",
                 \\"b\\",
                 \\"c\\"
             ]).isRequired,
-            unionAlias: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any
+            'unionAlias': ___PropTypes.oneOfType([
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.shape({
+                    'lastName': ___PropTypes.string.isRequired
+                })
             ]).isRequired,
-            arrayOfUnion: ___PropTypes.arrayOf(___PropTypes.any).isRequired,
-            complexUnion: ___PropTypes.oneOfType([
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any,
-                ___PropTypes.any
+            'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.any,
+                    'lastName': ___PropTypes.any
+                })
+            ])).isRequired,
+            'complexUnion': ___PropTypes.oneOfType([
+                ___PropTypes.oneOf([
+                    true
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }),
+                ___PropTypes.oneOf([
+                    \\"a\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"b\\"
+                ]),
+                ___PropTypes.oneOf([
+                    \\"c\\"
+                ]),
+                ___PropTypes.oneOf([
+                    5
+                ]),
+                ___PropTypes.oneOf([
+                    \\"6\\"
+                ]),
+                ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                })
             ]).isRequired,
-            interfaceValue: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired
+            'interfaceValue': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersecton: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersecton': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            intersectonAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any.isRequired,
-                lastName: ___PropTypes.any.isRequired
+            'intersectonAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string.isRequired,
+                'lastName': ___PropTypes.string.isRequired
             }).isRequired,
-            partialIntersectionAlias: ___PropTypes.shape({
-                firstName: ___PropTypes.any,
-                lastName: ___PropTypes.any
+            'partialIntersectionAlias': ___PropTypes.shape({
+                'firstName': ___PropTypes.string,
+                'lastName': ___PropTypes.string
             }).isRequired,
-            enum: ___PropTypes.oneOf([
+            'enum': ___PropTypes.oneOf([
                 0,
                 1,
                 2
             ]).isRequired,
-            optionalSelfReferencing: ___PropTypes.shape({
-                numberProp: ___PropTypes.any.isRequired,
-                stringLiteralProp: ___PropTypes.any.isRequired,
-                numberLiteralProp: ___PropTypes.any.isRequired,
-                boolLiteralProp: ___PropTypes.any.isRequired,
-                boolProp: ___PropTypes.any.isRequired,
-                arrayProp: ___PropTypes.any.isRequired,
-                genericArrayProp: ___PropTypes.any.isRequired,
-                optionalProp: ___PropTypes.any,
-                commentedProp: ___PropTypes.any.isRequired,
-                union: ___PropTypes.any.isRequired,
-                unionAlias: ___PropTypes.any.isRequired,
-                arrayOfUnion: ___PropTypes.any.isRequired,
-                complexUnion: ___PropTypes.any.isRequired,
-                interfaceValue: ___PropTypes.any.isRequired,
-                intersecton: ___PropTypes.any.isRequired,
-                intersectonAlias: ___PropTypes.any.isRequired,
-                partialIntersectionAlias: ___PropTypes.any.isRequired,
-                enum: ___PropTypes.any.isRequired,
-                optionalSelfReferencing: ___PropTypes.any,
-                id: ___PropTypes.any.isRequired
+            'optionalSelfReferencing': ___PropTypes.shape({
+                'numberProp': ___PropTypes.number.isRequired,
+                'stringLiteralProp': ___PropTypes.oneOf([
+                    \\"hi\\"
+                ]).isRequired,
+                'numberLiteralProp': ___PropTypes.oneOf([
+                    1
+                ]).isRequired,
+                'boolLiteralProp': ___PropTypes.oneOf([
+                    false
+                ]).isRequired,
+                'boolProp': ___PropTypes.bool.isRequired,
+                'arrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.number).isRequired,
+                'optionalProp': ___PropTypes.bool,
+                'commentedProp': ___PropTypes.string.isRequired,
+                'union': ___PropTypes.oneOf([
+                    \\"a\\",
+                    \\"b\\",
+                    \\"c\\"
+                ]).isRequired,
+                'unionAlias': ___PropTypes.oneOfType([
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.shape({
+                        'lastName': ___PropTypes.any.isRequired
+                    })
+                ]).isRequired,
+                'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.oneOfType([
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any,
+                    ___PropTypes.any
+                ])).isRequired,
+                'complexUnion': ___PropTypes.oneOfType([
+                    ___PropTypes.oneOf([
+                        true
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }),
+                    ___PropTypes.oneOf([
+                        \\"a\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"b\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"c\\"
+                    ]),
+                    ___PropTypes.oneOf([
+                        5
+                    ]),
+                    ___PropTypes.oneOf([
+                        \\"6\\"
+                    ]),
+                    ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    })
+                ]).isRequired,
+                'interfaceValue': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersecton': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'intersectonAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string.isRequired,
+                    'lastName': ___PropTypes.string.isRequired
+                }).isRequired,
+                'partialIntersectionAlias': ___PropTypes.shape({
+                    'firstName': ___PropTypes.string,
+                    'lastName': ___PropTypes.string
+                }).isRequired,
+                'enum': ___PropTypes.oneOf([
+                    0,
+                    1,
+                    2
+                ]).isRequired,
+                'optionalSelfReferencing': ___PropTypes.shape({
+                    'numberProp': ___PropTypes.number.isRequired,
+                    'stringLiteralProp': ___PropTypes.oneOf([
+                        \\"hi\\"
+                    ]).isRequired,
+                    'numberLiteralProp': ___PropTypes.oneOf([
+                        1
+                    ]).isRequired,
+                    'boolLiteralProp': ___PropTypes.oneOf([
+                        false
+                    ]).isRequired,
+                    'boolProp': ___PropTypes.bool.isRequired,
+                    'arrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'genericArrayProp': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'optionalProp': ___PropTypes.bool,
+                    'commentedProp': ___PropTypes.string.isRequired,
+                    'union': ___PropTypes.oneOf([
+                        \\"a\\",
+                        \\"b\\",
+                        \\"c\\"
+                    ]).isRequired,
+                    'unionAlias': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'arrayOfUnion': ___PropTypes.arrayOf(___PropTypes.any).isRequired,
+                    'complexUnion': ___PropTypes.oneOfType([
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any,
+                        ___PropTypes.any
+                    ]).isRequired,
+                    'interfaceValue': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersecton': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'intersectonAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any.isRequired,
+                        'lastName': ___PropTypes.any.isRequired
+                    }).isRequired,
+                    'partialIntersectionAlias': ___PropTypes.shape({
+                        'firstName': ___PropTypes.any,
+                        'lastName': ___PropTypes.any
+                    }).isRequired,
+                    'enum': ___PropTypes.oneOf([
+                        0,
+                        1,
+                        2
+                    ]).isRequired,
+                    'optionalSelfReferencing': ___PropTypes.shape({
+                        'numberProp': ___PropTypes.any.isRequired,
+                        'stringLiteralProp': ___PropTypes.any.isRequired,
+                        'numberLiteralProp': ___PropTypes.any.isRequired,
+                        'boolLiteralProp': ___PropTypes.any.isRequired,
+                        'boolProp': ___PropTypes.any.isRequired,
+                        'arrayProp': ___PropTypes.any.isRequired,
+                        'genericArrayProp': ___PropTypes.any.isRequired,
+                        'optionalProp': ___PropTypes.any,
+                        'commentedProp': ___PropTypes.any.isRequired,
+                        'union': ___PropTypes.any.isRequired,
+                        'unionAlias': ___PropTypes.any.isRequired,
+                        'arrayOfUnion': ___PropTypes.any.isRequired,
+                        'complexUnion': ___PropTypes.any.isRequired,
+                        'interfaceValue': ___PropTypes.any.isRequired,
+                        'intersecton': ___PropTypes.any.isRequired,
+                        'intersectonAlias': ___PropTypes.any.isRequired,
+                        'partialIntersectionAlias': ___PropTypes.any.isRequired,
+                        'enum': ___PropTypes.any.isRequired,
+                        'optionalSelfReferencing': ___PropTypes.any,
+                        'css': ___PropTypes.any,
+                        'dom': ___PropTypes.any,
+                        'id': ___PropTypes.any.isRequired
+                    }),
+                    'css': ___PropTypes.shape({}),
+                    'dom': ___PropTypes.arrayOf(___PropTypes.any),
+                    'id': ___PropTypes.number.isRequired
+                }),
+                'css': ___PropTypes.shape({}),
+                'dom': ___PropTypes.arrayOf(___PropTypes.string),
+                'id': ___PropTypes.number.isRequired
             }),
-            id: ___PropTypes.number.isRequired
+            'css': ___PropTypes.shape({}),
+            'dom': ___PropTypes.arrayOf(___PropTypes.string),
+            'id': ___PropTypes.number.isRequired
         }),
-        id: ___PropTypes.number.isRequired
+        'css': ___PropTypes.shape({}),
+        'dom': ___PropTypes.arrayOf(___PropTypes.string),
+        'id': ___PropTypes.number.isRequired
     }),
-    id: ___PropTypes.number.isRequired
+    'css': ___PropTypes.shape({}),
+    'dom': ___PropTypes.arrayOf(___PropTypes.string),
+    'id': ___PropTypes.number.isRequired
 };
 export const InferrableStatelessFunctionalTestComponent = (p) => {
     return <StatelessFunctionalTestComponent {...p}/>;

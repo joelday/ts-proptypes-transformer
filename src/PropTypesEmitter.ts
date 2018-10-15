@@ -14,16 +14,19 @@ export enum PropTypePrimitiveType {
 }
 
 // TODO: Refactor to pre-process and hoist prop types declarations for efficiency with circular references.
-const maxDepth = 4;
+const maxDepth = 6;
 
 export class PropTypesEmitter {
     private readonly _typeChecker: ts.TypeChecker;
     private readonly _importAliasName: string;
+    private readonly _fileIgnorePatterns: RegExp[];
+
     private _depth = 0;
 
-    constructor(typeChecker: ts.TypeChecker, importAliasName: string) {
+    constructor(typeChecker: ts.TypeChecker, importAliasName: string, fileIgnorePatterns: RegExp[]) {
         this._typeChecker = typeChecker;
         this._importAliasName = importAliasName;
+        this._fileIgnorePatterns = fileIgnorePatterns;
     }
 
     get importAliasName() {
@@ -111,13 +114,23 @@ export class PropTypesEmitter {
     }
 
     private emitInterface(type: ts.InterfaceTypeWithDeclaredMembers | ts.IntersectionType | ts.ObjectType) {
+        const symbol = type.getSymbol();
+
+        if (
+            symbol &&
+            symbol.declarations &&
+            symbol.declarations.some((d) => this._fileIgnorePatterns.some((p) => p.test(d.getSourceFile().fileName)))
+        ) {
+            return ts.createObjectLiteral([]);
+        }
+
         const properties = type.getApparentProperties();
         return ts.createObjectLiteral(
             properties.map((p) => {
                 const member = this.emitInterfaceMember(p);
 
                 return ts.createPropertyAssignment(
-                    p.escapedName.toString(),
+                    `'${p.escapedName.toString()}'`,
                     p.flags & ts.SymbolFlags.Optional ? member : this.emitAsRequired(member)
                 );
             }),

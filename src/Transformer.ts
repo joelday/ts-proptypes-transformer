@@ -1,5 +1,4 @@
 import * as ts from 'typescript';
-import * as f from 'prop-types';
 import { PropTypesEmitter } from './PropTypesEmitter';
 
 // TODO: See if ts has already normalized file paths.
@@ -40,8 +39,13 @@ interface IContext {
 export function createTransformer(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
     const typeChecker = program.getTypeChecker();
 
+    // TODO: Make ignore patterns configurable.
     function createPropTypesForType(type: ts.Type, importAliasName: string) {
-        const emitter = new PropTypesEmitter(typeChecker, importAliasName);
+        const emitter = new PropTypesEmitter(typeChecker, importAliasName, [
+            /lib\.dom\.d\.ts/,
+            /csstype/,
+            /@types\/react/,
+        ]);
         return emitter.emitForType(type);
     }
 

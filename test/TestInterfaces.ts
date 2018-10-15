@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 export enum TestEnum {
     one,
     two,
@@ -43,6 +45,8 @@ export interface ITestComponentProps extends IBaseInterface {
     partialIntersectionAlias: Partial<FullName>;
     enum: TestEnum;
     optionalSelfReferencing?: ITestComponentProps;
+    css?: CSSProperties;
+    dom?: CSSStyleDeclaration;
 }
 
 export interface IGenericPropsTestComponentProps<T, U = T> {
