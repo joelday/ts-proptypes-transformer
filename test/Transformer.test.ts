@@ -28,6 +28,21 @@ describe('Transformer', () => {
         );
     });
 
+    it('transforms TypeScript interfaces to PropTypes declarations on CommonJS emitted code', () => {
+        compile(
+            testFileName,
+            (emittedSource) => {
+                expect(emittedSource).toMatchSnapshot();
+            },
+            {
+                compilerOptions: {
+                    module: ts.ModuleKind.CommonJS,
+                    jsx: ts.JsxEmit.React,
+                },
+            }
+        );
+    });
+
     it('produces PropTypes declarations that properly validate correctly formed props', async () => {
         const testModule = (await compileAndLoadModule(testFileName)) as typeof import('./TestComponent');
 

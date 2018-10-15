@@ -92,8 +92,8 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         const needsExplicitExport =
             componentInfo.declaration.parent.parent.modifiers &&
             componentInfo.declaration.parent.parent.modifiers.some((m) => m.kind === ts.SyntaxKind.ExportKeyword) &&
-            (program.getCompilerOptions().target === ts.ScriptTarget.ES3 ||
-                program.getCompilerOptions().target === ts.ScriptTarget.ES5);
+            (program.getCompilerOptions().target < ts.ScriptTarget.ES2015 ||
+                program.getCompilerOptions().module === ts.ModuleKind.CommonJS);
 
         const componentDeclarationExpression = needsExplicitExport
             ? ts.createPropertyAccess(ts.createIdentifier('exports'), componentInfo.name)
