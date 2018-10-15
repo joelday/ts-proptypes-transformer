@@ -46,17 +46,27 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             /csstype/,
             /@types\/react/,
         ]);
-        return emitter.emitForType(type);
+        const emitted = emitter.emitForType(type);
+        if (typeof emitted === 'function') {
+            return null;
+        }
+
+        return emitted;
     }
 
     function addPropTypesDeclarationToClass(componentInfo: IClassReactComponentInfo, context: IContext) {
+        const props = createPropTypesForType(componentInfo.propTypes, context.importAliasName);
+        if (!props) {
+            return;
+        }
+
         const propTypesDeclaration = ts.createProperty(
             undefined,
             ts.createModifiersFromModifierFlags(ts.ModifierFlags.Static),
             propTypesStaticPropertyName,
             undefined,
             undefined,
-            createPropTypesForType(componentInfo.propTypes, context.importAliasName)
+            props
         );
 
         const updatedDeclaration = ts.updateClassDeclaration(
@@ -74,6 +84,11 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     }
 
     function addPropTypesDeclarationToStateless(componentInfo: IStatelessReactComponentInfo, context: IContext) {
+        const props = createPropTypesForType(componentInfo.propTypes, context.importAliasName);
+        if (!props) {
+            return;
+        }
+
         const needsExplicitExport =
             componentInfo.declaration.parent.parent.modifiers &&
             componentInfo.declaration.parent.parent.modifiers.some((m) => m.kind === ts.SyntaxKind.ExportKeyword) &&
@@ -88,7 +103,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             ts.createBinary(
                 ts.createPropertyAccess(componentDeclarationExpression, propTypesStaticPropertyName),
                 ts.SyntaxKind.EqualsToken,
-                createPropTypesForType(componentInfo.propTypes, context.importAliasName)
+                props
             )
         );
 
