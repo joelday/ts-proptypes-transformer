@@ -236,13 +236,16 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
             statements: [...sourceFile.statements],
         };
 
-        ensurePropTypesImport(sourceFile, context);
-
         // Currently assumes that everything is top-level within the source file.
         // Wouldn't be incredibly difficult to support class expressions, etc.
         // Need a special leading comment annotation to opt-in to it, though.
 
         const componentInfos = getInfoForComponentsInScope(sourceFile);
+        if (componentInfos.length === 0) {
+            return context.statements;
+        }
+
+        ensurePropTypesImport(sourceFile, context);
 
         for (const componentInfo of componentInfos) {
             if (componentInfo.kind === 'class') {
