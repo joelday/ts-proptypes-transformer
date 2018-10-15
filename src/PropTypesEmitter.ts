@@ -13,9 +13,13 @@ export enum PropTypePrimitiveType {
     symbol,
 }
 
+// TODO: Refactor to pre-process and hoist prop types declarations for efficiency with circular references.
+const maxDepth = 10;
+
 export class PropTypesEmitter {
     private readonly _typeChecker: ts.TypeChecker;
     private readonly _importAliasName: string;
+    private _depth = 0;
 
     constructor(typeChecker: ts.TypeChecker, importAliasName: string) {
         this._typeChecker = typeChecker;
@@ -27,35 +31,45 @@ export class PropTypesEmitter {
     }
 
     emitForType(type: ts.Type, asShape = false): ts.Expression {
-        if (this.getTypeIsLiteral(type)) {
-            return this.emitAsOneOf([type]);
-        }
+        try {
+            this._depth++;
 
-        const primitiveType = this.getPrimitiveTypeOfType(type);
-        if (primitiveType) {
-            return this.emitPrimitiveType(primitiveType);
-        }
-
-        // We check for unions after primitives because bool is also treated as a union of true and false.
-        if (type.isUnion()) {
-            return this.emitAsOneOfType(type);
-        }
-
-        const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
-        if (numericIndexInfo) {
-            return this.emitAsArrayOf(this.emitForType(numericIndexInfo.type, true));
-        }
-
-        if (this.treatAsInterface(type)) {
-            const interfaceType = this.emitInterface(type);
-            if (asShape) {
-                return this.emitAsShape(interfaceType);
+            if (this._depth > maxDepth) {
+                return this.emitPrimitiveType(PropTypePrimitiveType.any);
             }
 
-            return interfaceType;
-        }
+            if (this.getTypeIsLiteral(type)) {
+                return this.emitAsOneOf([type]);
+            }
 
-        return this.emitPrimitiveType(PropTypePrimitiveType.any);
+            const primitiveType = this.getPrimitiveTypeOfType(type);
+            if (primitiveType) {
+                return this.emitPrimitiveType(primitiveType);
+            }
+
+            // We check for unions after primitives because bool is also treated as a union of true and false.
+            if (type.isUnion()) {
+                return this.emitAsOneOfType(type);
+            }
+
+            const numericIndexInfo = this._typeChecker.getIndexInfoOfType(type, ts.IndexKind.Number);
+            if (numericIndexInfo) {
+                return this.emitAsArrayOf(this.emitForType(numericIndexInfo.type, true));
+            }
+
+            if (this.treatAsInterface(type)) {
+                const interfaceType = this.emitInterface(type);
+                if (asShape) {
+                    return this.emitAsShape(interfaceType);
+                }
+
+                return interfaceType;
+            }
+
+            return this.emitPrimitiveType(PropTypePrimitiveType.any);
+        } finally {
+            this._depth--;
+        }
     }
 
     private typeIsObjectType(type: ts.Type): type is ts.ObjectType {

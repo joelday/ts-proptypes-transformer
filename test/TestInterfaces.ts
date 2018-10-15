@@ -42,6 +42,7 @@ export interface ITestComponentProps extends IBaseInterface {
     intersectonAlias: FullName;
     partialIntersectionAlias: Partial<FullName>;
     enum: TestEnum;
+    optionalSelfReferencing?: ITestComponentProps;
 }
 
 export interface IGenericPropsTestComponentProps<T, U = T> {
