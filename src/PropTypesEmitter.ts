@@ -14,7 +14,7 @@ export enum PropTypePrimitiveType {
 }
 
 // TODO: Refactor to pre-process and hoist prop types declarations for efficiency with circular references.
-const maxDepth = 10;
+const maxDepth = 4;
 
 export class PropTypesEmitter {
     private readonly _typeChecker: ts.TypeChecker;
