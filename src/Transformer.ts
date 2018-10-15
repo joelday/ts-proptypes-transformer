@@ -147,7 +147,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
         const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration) as ts.GenericType;
 
         // TODO: More robust check:
-        if (!type || type.getSymbol().name !== 'StatelessComponent') {
+        if (!type || !type.getSymbol() || type.getSymbol().name !== 'StatelessComponent') {
             return null;
         }
 
@@ -173,7 +173,7 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     }
 
     function getTypeIsReactComponentType(type: ts.InterfaceTypeWithDeclaredMembers) {
-        // TODO: Actually check for if this is React.SFC or React.Component
+        // TODO: Actually check for if this is a React.SFC, React.Component or React.PureComponent.
         const declaration = type.getSymbol().declarations[0];
         return declaration.getSourceFile().fileName.endsWith(`${reactPackageName}/index.d.ts`);
     }

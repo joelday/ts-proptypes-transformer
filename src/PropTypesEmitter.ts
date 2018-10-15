@@ -26,7 +26,7 @@ export class PropTypesEmitter {
         return this._importAliasName;
     }
 
-    emitForType(type: ts.Type, asShape = false) {
+    emitForType(type: ts.Type, asShape = false): ts.Expression {
         if (this.getTypeIsLiteral(type)) {
             return this.emitAsOneOf([type]);
         }
