@@ -1,4 +1,4 @@
-import { createTransformer } from '../src/Transformer';
+import { createTransformer, ITransformOptions } from '../src/Transformer';
 import * as ts from 'typescript';
 import * as requireFromString from 'require-from-string';
 
@@ -11,11 +11,12 @@ export interface ITestProgramOptions {
 export function compile(
     fileName: string,
     resultCallback: (emittedSource: string) => void,
-    options?: ITestProgramOptions
+    programOptions?: ITestProgramOptions,
+    options?: ITransformOptions
 ) {
     const { expectErrorFree, compilerOptions, additionalFileNames } = {
         expectErrorFree: true,
-        ...(options || {}),
+        ...(programOptions || {}),
     } as ITestProgramOptions;
 
     const program = ts.createProgram([fileName, ...(additionalFileNames || [])], {
@@ -28,7 +29,7 @@ export function compile(
     const sourceFile = program.getSourceFile(fileName);
 
     const emitResult = program.emit(sourceFile, (_fileName, data) => resultCallback(data), null, null, {
-        before: [createTransformer(program)],
+        before: [createTransformer(program, options)],
     });
 
     if (expectErrorFree) {
@@ -38,7 +39,7 @@ export function compile(
     return emitResult;
 }
 
-export function compileAndLoadModule(fileName: string, additionalFileNames = []) {
+export function compileAndLoadModule(fileName: string, additionalFileNames = [], options?: ITransformOptions) {
     return new Promise((resolve, reject) => {
         try {
             compile(
@@ -54,7 +55,8 @@ export function compileAndLoadModule(fileName: string, additionalFileNames = [])
                         jsx: ts.JsxEmit.React,
                         target: ts.ScriptTarget.ES5,
                     },
-                }
+                },
+                options
             );
         } catch (e) {
             reject(e);

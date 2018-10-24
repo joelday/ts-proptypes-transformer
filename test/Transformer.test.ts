@@ -43,34 +43,50 @@ describe('Transformer', () => {
         );
     });
 
+    it('produces PropTypes declarations exclusively for commented components when requireGeneratorComment is enabled', async () => {
+        compile(
+            testFileName,
+            (emittedSource) => {
+                expect(emittedSource.match(/\.propTypes = {/g)).toHaveLength(4);
+                expect(emittedSource).toMatchSnapshot();
+            },
+            undefined,
+            {
+                requireGeneratorComment: true,
+            }
+        );
+    });
+
+    const validTestProps: ITestComponentProps = {
+        arrayOfUnion: ['a', true],
+        arrayProp: [],
+        boolLiteralProp: false,
+        boolProp: true,
+        commentedProp: '',
+        complexUnion: 'a',
+        enum: TestEnum.one,
+        genericArrayProp: [],
+        id: 1,
+        interfaceValue: { firstName: 'firstName' },
+        intersecton: { firstName: 'firstName', lastName: 'lastName' },
+        intersectonAlias: { firstName: 'firstName', lastName: 'lastName' },
+        numberLiteralProp: 1,
+        numberProp: 1,
+        partialIntersectionAlias: {},
+        stringLiteralProp: 'hi',
+        union: 'a',
+        unionAlias: { firstName: 'firstName' },
+        callable: () => true,
+        newable: class Blah implements IFirstName {
+            firstName: string;
+        },
+        typeOf: String,
+    };
+
     it('produces PropTypes declarations that properly validate correctly formed props', async () => {
         const testModule = (await compileAndLoadModule(testFileName)) as typeof import('./TestComponent');
 
-        expectComponentPropTypesError<ITestComponentProps>(testModule.TestComponent, {
-            arrayOfUnion: ['a', true],
-            arrayProp: [],
-            boolLiteralProp: false,
-            boolProp: true,
-            commentedProp: '',
-            complexUnion: 'a',
-            enum: TestEnum.one,
-            genericArrayProp: [],
-            id: 1,
-            interfaceValue: { firstName: 'firstName' },
-            intersecton: { firstName: 'firstName', lastName: 'lastName' },
-            intersectonAlias: { firstName: 'firstName', lastName: 'lastName' },
-            numberLiteralProp: 1,
-            numberProp: 1,
-            partialIntersectionAlias: {},
-            stringLiteralProp: 'hi',
-            union: 'a',
-            unionAlias: { firstName: 'firstName' },
-            callable: () => true,
-            newable: class Blah implements IFirstName {
-                firstName: string;
-            },
-            typeOf: String,
-        }).toHaveLength(0);
+        expectComponentPropTypesError<ITestComponentProps>(testModule.TestComponent, validTestProps).toHaveLength(0);
     });
 
     it('produces PropTypes declarations that properly validate incorrectly formed props', async () => {

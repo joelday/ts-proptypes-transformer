@@ -3,6 +3,12 @@ import { PropTypesEmitter } from './PropTypesEmitter';
 
 // TODO: See if ts has already normalized file paths.
 
+export interface ITransformOptions {
+    requireGeneratorComment?: boolean;
+}
+
+const generatorComment = 'ts-proptypes-transformer:generate';
+
 const generatedImportAliasName = '_pt_';
 const propTypesPackageName = 'prop-types';
 const reactPackageName = 'react';
@@ -36,7 +42,10 @@ interface IContext {
     importAliasName?: string;
 }
 
-export function createTransformer(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
+export function createTransformer(
+    program: ts.Program,
+    options: ITransformOptions = {}
+): ts.TransformerFactory<ts.SourceFile> {
     const typeChecker = program.getTypeChecker();
 
     // TODO: Make ignore patterns configurable.
@@ -211,6 +220,42 @@ export function createTransformer(program: ts.Program): ts.TransformerFactory<ts
     function getComponentInfoForSymbol(symbol: ts.Symbol): ReactComponentInfo {
         const componentSymbol =
             symbol.flags & ts.SymbolFlags.ExportValue ? typeChecker.getExportSymbolOfSymbol(symbol) : symbol;
+
+        if (options.requireGeneratorComment) {
+            const declaration = symbol.declarations[0];
+            const leadingText = declaration.getFullText().slice(0, declaration.getLeadingTriviaWidth());
+
+            // TODO: Cleanup, generic contiguous comment line parsing.
+
+            // We only want this directive when written at the beginning of the comment text on a given line within
+            // a contiguous block of comment lines written directly above the declaration.
+            const rawCommentLines = leadingText.split('\n');
+
+            const commentLines = rawCommentLines
+                .slice(0, rawCommentLines.length - 1)
+                .map((line) => line.replace(/(\/\*\*?|\/\/)/g, ''))
+                .map((line) => line.trim());
+
+            let foundComment = false;
+            let hasSeenNonBlank = false;
+            for (const line of commentLines) {
+                if (line === '') {
+                    if (hasSeenNonBlank) {
+                        return null;
+                    }
+                } else {
+                    hasSeenNonBlank = true;
+                }
+
+                if (line.startsWith(generatorComment)) {
+                    foundComment = true;
+                }
+            }
+
+            if (!foundComment) {
+                return null;
+            }
+        }
 
         if (componentSymbol.flags & ts.SymbolFlags.Variable) {
             return getStatelessComponentInfo(componentSymbol);
