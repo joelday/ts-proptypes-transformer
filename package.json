@@ -19,7 +19,8 @@
         "react": "^16.5.2",
         "require-from-string": "^2.0.2",
         "rimraf": "^2.6.2",
-        "ts-jest": "^23.10.4"
+        "ts-jest": "^23.10.4",
+        "merge": "^1.2.1"
     },
     "files": [
         "lib"
@@ -45,5 +46,5 @@
         "prepare": "npm run test && npm run clean && npm run build",
         "test": "jest"
     },
-    "version": "0.2.0"
+    "version": "0.2.1"
 }
