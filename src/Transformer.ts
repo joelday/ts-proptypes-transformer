@@ -152,9 +152,9 @@ export function createTransformer(
         // TODO: Check for existing propTypes assignment.
         const declaration = symbol.declarations[0] as ts.VariableDeclaration;
         const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration) as ts.GenericType;
-
+        
         // TODO: More robust check:
-        if (!type || !type.getSymbol() || type.getSymbol().name !== 'StatelessComponent') {
+        if (!type || !type.getSymbol() || ['FunctionComponent', 'StatelessComponent'].indexOf(type.getSymbol().name) === -1) {
             return null;
         }
 
