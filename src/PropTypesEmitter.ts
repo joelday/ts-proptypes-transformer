@@ -52,6 +52,9 @@ export class PropTypesEmitter {
 
             // We check for unions after primitives because bool is also treated as a union of true and false.
             if (type.isUnion()) {
+                if (type.aliasSymbol && type.aliasSymbol.escapedName === "ReactNode") {
+                    return this.emitPrimitiveType(PropTypePrimitiveType.node);
+                }
                 return this.emitAsOneOfType(type);
             }
 
@@ -168,6 +171,7 @@ export class PropTypesEmitter {
         }
 
         const functionReference = ts.createPropertyAccess(ts.createIdentifier(this._importAliasName), 'oneOfType');
+
         const emittedTypes = unionType.types.map((type) => this.emitForType(type, true));
 
         return ts.createCall(functionReference, [], [ts.createArrayLiteral(emittedTypes, true)]);
