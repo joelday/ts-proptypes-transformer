@@ -13,14 +13,14 @@
         "@types/node": "^10.11.7",
         "@types/react": "^16.4.16",
         "@types/require-from-string": "^1.2.0",
-        "jest": "^23.6.0",
+        "jest": "^24.8.0",
+        "merge": "^1.2.1",
         "prettier": "^1.14.3",
         "prop-types": "^15.6.2",
         "react": "^16.5.2",
         "require-from-string": "^2.0.2",
         "rimraf": "^2.6.2",
-        "ts-jest": "^23.10.4",
-        "merge": "^1.2.1"
+        "ts-jest": "^23.10.4"
     },
     "files": [
         "lib"
@@ -46,5 +46,5 @@
         "prepare": "npm run test && npm run clean && npm run build",
         "test": "jest"
     },
-    "version": "0.2.1"
+    "version": "0.3.0"
 }
